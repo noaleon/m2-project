@@ -32,3 +32,14 @@ app.use('/', indexRoutes);
 require('./error-handling')(app);
 
 module.exports = app;
+
+
+/*
+- Register view
+GET route ==> to display the register form to users
+router.get("/register", isLoggedOut, (req, res) => res.render("users/register"));
+- Populate seeds.js 
+   -Data that we want:
+     
+
+*/
