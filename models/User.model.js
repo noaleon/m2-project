@@ -25,12 +25,11 @@ const userSchema = new Schema(
       type: Number,
       unique: true,
     },
-    skills: {
-      type: String,
-      default: [],
-    },
+    skills: [String],
     role: {
-      type: ['user', 'artist'],
+      type: String,
+      required: true,
+      enum: ['user', 'artist'],
     },
     location: String,
     profession: String,
