@@ -262,6 +262,7 @@ const artists = [
     password: 'passworddef2',
     role: 'artist',
   },
+];
 
 // connect to the database
 mongoose
