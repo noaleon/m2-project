@@ -262,13 +262,6 @@ const artists = [
     password: 'passworddef2',
     role: 'artist',
   },
-  {
-    fullName: 'Uma Lee',
-    email: 'uma.lee@example.com',
-    password: 'passwordghi3',
-    role: 'artist',
-  },
-];
 
 // connect to the database
 mongoose
