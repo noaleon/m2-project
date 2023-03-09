@@ -1,21 +1,141 @@
+/* Global setup */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* colors */
+:root {
+  --black: #141414;
+  --white: #f2f2f2;
+  --dark-gray: #525252;
+  --light-gray: #c4c4c4;
+  --green: #3db68a;
 }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
 }
 
 ul {
+  padding: 0;
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+}
+
+/* span dot green */
+.dot {
+  color: var(--green);
+}
+
+/* buttons styles */
+button {
+  border: none;
+}
+
+.btn-white {
+  color: var(--black);
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 5px;
+  background-image: linear-gradient(#eeeeee, #ffffff);
+}
+
+.btn-gradient {
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 5px;
+  background-image: linear-gradient(#3db68a, #4bd89d);
+}
+
+/* style page layout.hbs */
+.header-bg {
+  background: linear-gradient(180deg, #3db68a 0%, #4bd89d 100%);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+}
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-menu a {
+  display: inline-block;
+  padding: 16px 0;
+  position: relative;
+}
+
+.footer-bg {
+  padding: 20px 100px;
+  margin-top: 100vh;
+  background-color: #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-social {
+  display: flex;
+  gap: 40px;
+}
+
+/* style page index.hbs */
+.introduction-bg {
+  background-color: #c4c4c4; /*change to bg image*/
+  height: 600px;
+}
+
+.introduction {
+  padding: 300px 100px 100px 100px;
+}
+
+.heading-1 {
+  font-size: 72px;
+  padding-bottom: 40px;
+}
+
+/* style page register.hbs */
+#register-form {
+  background-color: var(--light-gray);
+  position: absolute;
+  margin: 0 auto;
+  width: 100vw;
+  /* padding: 300px 100px 100px 100px; */
+}
+
+.form {
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  width: 700px;
+  height: 500px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }

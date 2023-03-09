@@ -1,0 +1,30 @@
+<div id='register-form'>
+  <h1 class='heading-1'>register<span class='dot'>.</span></h1>
+
+  <form class='form' action='/register' method='POST'>
+    <label>
+      Name
+      <input type='text' name='fullName' placeholder='Your name' />
+    </label>
+
+    <label>
+      E-mail
+      <input type='email' name='email' placeholder='artist@email.com' />
+    </label>
+
+    <label>Password
+      <input type='password' name='password' placeholder='********' />
+    </label>
+
+    <label><input type='checkbox' name='artist' /> I'm a professional</label>
+    <label><input type='checkbox' name='user' /> I'm not a professional</label>
+
+    <button class='btn-gradient' type='submit'>register</button>
+
+    {{#if errorMessage}}
+      <p class='error'>{{errorMessage}}</p>
+    {{/if}}
+  </form>
+
+  <script src='/js/register-page.js'></script>
+</div>

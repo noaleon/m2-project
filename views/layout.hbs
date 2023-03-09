@@ -1,36 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{appTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>{{appTitle}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
 
-   <body>
-      <nav>
-      <ul>
-         <li>
-            <p><a href="/"> PRO - demo </a></p>
-         </li>
-         <li>
-            <a href="/register">Register</a> <span> | </span>
-            <a href="/login">Login</a> <span> | </span>
-            <form hidden id="logout-form" action="/logout" method="POST">
-               <a href="/">Logout</a> <span> | </span>
+  <body>
+
+    <nav class='nav-bar header-bg'>
+      <div class='header'>
+        <a href='/'>
+          logo
+          {{! <img src='' alt='logo' /> }}
+        </a>
+
+        <div>
+          <ul class='header-menu'>
+            <li><a href='/explore'>Explore </a><span> |</span></li>
+            <li><a href='/register'>Register </a><span> |</span></li>
+            <li><a href='/login'>Log in</a></li>
+            <form hidden id='logout-form' action='/logout' method='POST'>
+              <a href='/'>Log out</a>
             </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-            {{!-- <a href="/userProfile">Profile</a>  !!! --}}
+    {{{body}}}
 
-         </li>
-      </ul>
-   </nav>
+    <footer class='footer-bg'>
+      <h4>Name © All rights reserved.</h4>
+      <div class='footer-social'>
+        <a href='./'>
+          <img
+            src='/images/instagram.svg'
+            width='32'
+            height='32'
+            alt='Instagram'
+          />
+        </a>
+        <a href='./'>
+          <img
+            src='/images/facebook.svg'
+            width='32'
+            height='32'
+            alt='Facebook'
+          />
+        </a>
+      </div>
+    </footer>
 
-      {{{body}}}
-
-      <script src="/js/script.js"></script>
-   </body>
+    <script src='/js/script.js'></script>
+  </body>
 
 </html>
