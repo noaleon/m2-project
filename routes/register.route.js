@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 const User = require('../models/User.model');
 const router = express.Router();
 
@@ -10,8 +11,6 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res, next) => {
-  console.log(req.body);
-
   const { fullName, email, password, user, artist } = req.body;
 
   // make sure users fill all mandatory fields:
@@ -45,7 +44,7 @@ router.post('/register', (req, res, next) => {
       });
     })
     .then((userFromDB) => {
-      res.redirect('/user-profile', { user: userFromDB });
+      res.redirect(`user-profile/${userFromDB.id}`);
     })
     .catch((error) => {
       console.log(error);
