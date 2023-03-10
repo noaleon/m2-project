@@ -142,12 +142,6 @@ const artists = [
     password: 'passworddef2',
     role: 'artist',
   },
-  {
-    fullName: 'Uma Lee',
-    email: 'uma.lee@example.com',
-    password: 'passwordghi3',
-    role: 'artist',
-  },
 ];
 
 //CREATE HERE DATA FOR THE PROJECTS
