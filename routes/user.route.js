@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User.model');
 
+
 // require (import) middleware functions
 const { loggedIn, loggedOut, isArtist } = require("../middleware/route-guard.js");
 

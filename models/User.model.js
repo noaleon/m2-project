@@ -21,16 +21,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: Number,
-      unique: true,
-    },
-    skills: [String],
     role: {
       type: String,
       required: true,
       enum: ['user', 'artist'],
     },
+    skills: [String],
+    phoneNumber: Number,
     location: String,
     profession: String,
   },

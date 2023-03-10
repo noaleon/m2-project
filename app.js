@@ -28,6 +28,7 @@ app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 //create this to show the images
 app.use(express.static('public/images'));
 app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 // 👇 Start handling routes here
 const indexRoutes = require('./routes/index.routes');
@@ -45,11 +46,25 @@ require('./error-handling')(app);
 module.exports = app;
 
 /*
-- Register view
-GET route ==> to display the register form to users
-router.get("/register", isLoggedOut, (req, res) => res.render("register"));
-- Populate seeds.js 
-   -Data that we want:
+DONE: (missing the styles)
+- Project and User model
+- Seeds with user and artist
+- Register route
+- Index route
+- Register hbs
+
+
+WORKING:
+- User route / user-profile.hbs
+
+
+TO DO:
+- Populate seeds.js with the projects
+- Middlewares
+- Login route / login.hbs
+-...
+
      
+
 
 */
