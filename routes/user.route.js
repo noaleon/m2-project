@@ -11,7 +11,7 @@ const { loggedIn, loggedOut, isArtist } = require("../middleware/route-guard.js"
 
 //                 .: ADDED :.
 router.get("/login", loggedOut, (req, res) => res.render("login-layout"));
-/*
+
 //     POST login route ==> to process form data
 //                 .: ADDED :.
 router.post("/login", loggedOut, (req, res, next) => {
@@ -39,7 +39,7 @@ router.post("/login", loggedOut, (req, res, next) => {
       // with the hashed password saved in the database
       else if (bcryptjs.compareSync(password, user.password)) {
 
-        req.session.currentUser = user;
+        req.session.user = user;
         res.redirect("/welcome-user");
       } else {
         // if the two passwords DON'T match, render the login form again
@@ -54,7 +54,6 @@ router.post("/login", loggedOut, (req, res, next) => {
 });
 
 //   end of Noa's code
-*/
 
 // added loggedIn condition
 router.get('/user-profile/:id', loggedIn, (req, res, next) => {
