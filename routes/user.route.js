@@ -39,9 +39,8 @@ router.post("/login", loggedOut, (req, res, next) => {
       // if there's a user, compare provided password
       // with the hashed password saved in the database
       else if (bcryptjs.compareSync(password, user.password)) {
-
         req.session.user = user;
-        res.redirect("/welcome-user");
+        res.redirect("users/user-profile");
       } else {
         // if the two passwords DON'T match, render the login form again
         // and send the error message to the user
@@ -54,16 +53,23 @@ router.post("/login", loggedOut, (req, res, next) => {
     .catch((error) => next(error));
 });
 
-//   end of Noa's code
+router.get("/user-profile", loggedIn, (req, res) => {
 
-// added loggedIn condition
-router.get('/user-profile/:id', loggedIn, (req, res, next) => {
-  const { id } = req.params;
+  res.render('users/user-profile', {
+    userInSession: req.session.user,
+    layout: req.session.user.role == "artist"
+      ? './artists/artist-profile.hbs' : './users/user-profile.hbs'
+  })
 
-  User.findById(id)
-    .then((user) => res.render('users/user-profile', user))
-    .catch((error) => next(error));
 });
 
+// // added loggedIn condition
+// router.get('/user-profile/:id', loggedIn, (req, res, next) => {
+//   const { id } = req.params;
+
+//   User.findById(id)
+//     .then((user) => res.render('users/user-profile', user))
+//     .catch((error) => next(error));
+// });
 
 module.exports = router;

@@ -24,6 +24,7 @@ const loggedIn = (req, res, next) => {
     }
     else
     {
+      console.log('hi')
       next()
     }
   
