@@ -1,13 +1,13 @@
 // config/session.config.js
 
 // require session
-const session = require("express-session");
+const session = require('express-session');
 
 // ADDED: require mongostore
-const MongoStore = require("connect-mongo");
+const MongoStore = require('connect-mongo');
 
 // ADDED: require mongoose
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 // since we are going to USE this middleware in the app.js,
 // let's export it and have it receive a parameter
@@ -23,8 +23,8 @@ module.exports = (app) => {
       resave: true,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/m2-project"
-      })
-    })
+        mongoUrl: process.env.MONGODB_URI,
+      }),
+    }),
   );
 };

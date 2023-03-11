@@ -44,6 +44,7 @@ router.post('/register', (req, res, next) => {
       });
     })
     .then((userFromDB) => {
+      req.session.user = userFromDB;
       res.redirect(`user-profile/${userFromDB.id}`);
     })
     .catch((error) => {

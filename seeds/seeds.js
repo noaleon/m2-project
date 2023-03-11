@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
 
-const MONGO_URI =
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/m2-project';
+const MONGO_URI = process.env.MONGODB_URI;
 
 //2 USERS data with fullName, email and password
 const users = [
