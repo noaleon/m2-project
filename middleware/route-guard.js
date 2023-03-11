@@ -1,10 +1,8 @@
 // checks if the user is logged in when trying to access a specific page
 const loggedIn = (req, res, next) => {
-    console.warn(req.session.user)
     if (!req.session.user) {
       return res.redirect("/login");
-    }
-    next();
+    } else next();
   };
   
   // if an already logged in user tries to access the login page it
@@ -12,8 +10,7 @@ const loggedIn = (req, res, next) => {
   const loggedOut = (req, res, next) => {
     if (req.session.user) {
       return res.redirect("/");
-    }
-    next();
+    } else next();
   };
   
   const isArtist = (req, res, next) => {
