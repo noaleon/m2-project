@@ -40,6 +40,9 @@ app.use('/', registerRoute);
 const userRoute = require('./routes/user.route');
 app.use('/', userRoute);
 
+const projectRoute = require('./routes/explore.route');
+app.use('/', projectRoute);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

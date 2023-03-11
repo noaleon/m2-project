@@ -46,7 +46,7 @@ router.post('/login', loggedOut, (req, res, next) => {
       // with the hashed password saved in the database
       else if (bcrypt.compareSync(password, user.password)) {
         req.session.user = user;
-        res.redirect('/welcome-user');
+        res.redirect('/explore');
       } else {
         // if the two passwords DON'T match, render the login form again
         // and send the error message to the user
@@ -76,9 +76,9 @@ router.get('/user-profile/:id', loggedIn, (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.post("/logout", loggedIn, (req, res) => {
+router.get('/logout', loggedIn, (req, res) => {
   req.session.destroy();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 module.exports = router;
