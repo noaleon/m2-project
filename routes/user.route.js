@@ -15,11 +15,11 @@ const {
 // GET route ==> to display the login form to users
 
 //                 .: ADDED :.
-router.get('/login', (req, res) => res.render('login-layout'));
+router.get('/login', loggedOut, (req, res) => res.render('login-layout'));
 
 //     POST login route ==> to process form data
 //                 .: ADDED :.
-router.post('/login', (req, res, next) => {
+router.post('/login', loggedOut, (req, res, next) => {
   console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
 
