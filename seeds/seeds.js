@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
-// require project model
-const Project = require('../models/Project.model')
 
-const MONGO_URI =
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/m2-project';
+const MONGO_URI = process.env.MONGODB_URI;
 
 //2 USERS data with fullName, email and password
 const users = [
@@ -23,7 +20,6 @@ const users = [
 ];
 
 //22 ARTISTS data with fullName, email and password
-// deleted some artists and edited the reminders
 const artists = [
   {
     fullName: 'Joana Mendes',
@@ -42,12 +38,112 @@ const artists = [
     email: 'jesus.dias@example.com',
     password: 'password789',
     role: 'artist',
-    // projects: [ {owner: '',}]
+  },
+  {
+    fullName: 'Diogo Lee',
+    email: 'diogo.lee@example.com',
+    password: 'password321',
+    role: 'artist',
+  },
+  {
+    fullName: 'Emily Chen',
+    email: 'emily.chen@example.com',
+    password: 'password654',
+    role: 'artist',
+  },
+  {
+    fullName: 'Frank Wang',
+    email: 'frank.wang@example.com',
+    password: 'password987',
+    role: 'artist',
+  },
+  {
+    fullName: 'Grace Kim',
+    email: 'grace.kim@example.com',
+    password: 'passwordabc',
+    role: 'artist',
+  },
+  {
+    fullName: 'Henry Liu',
+    email: 'henry.liu@example.com',
+    password: 'passworddef',
+    role: 'artist',
+  },
+  {
+    fullName: 'Isabella Davis',
+    email: 'isabella.davis@example.com',
+    password: 'passwordghi',
+    role: 'artist',
+  },
+  {
+    fullName: 'Jack Brown',
+    email: 'jack.brown@example.com',
+    password: 'passwordjkl',
+    role: 'artist',
+  },
+  {
+    fullName: 'Katherine Lee',
+    email: 'katherine.lee@example.com',
+    password: 'passwordmno',
+    role: 'artist',
+  },
+  {
+    fullName: 'Liam Nielson',
+    email: 'liam.nielson@example.com',
+    password: 'passwordpqr',
+    role: 'artist',
+  },
+  {
+    fullName: 'Melissa Johnson',
+    email: 'melissa.johnson@example.com',
+    password: 'passwordstu',
+    role: 'artist',
+  },
+  {
+    fullName: 'Noah Brown',
+    email: 'noah.brown@example.com',
+    password: 'passwordvwx',
+    role: 'artist',
+  },
+  {
+    fullName: 'Olivia Chen',
+    email: 'olivia.chen@example.com',
+    password: 'passwordyz1',
+    role: 'artist',
+  },
+  {
+    fullName: 'Peter Wang',
+    email: 'peter.wang@example.com',
+    password: 'password234',
+    role: 'artist',
+  },
+  {
+    fullName: 'Queen Kim',
+    email: 'queen.kim@example.com',
+    password: 'password567',
+    role: 'artist',
+  },
+  {
+    fullName: 'Ryan Liu',
+    email: 'ryan.liu@example.com',
+    password: 'password890',
+    role: 'artist',
+  },
+  {
+    fullName: 'Samantha Davis',
+    email: 'samantha.davis@example.com',
+    password: 'passwordabc1',
+    role: 'artist',
+  },
+  {
+    fullName: 'Tyler Brown',
+    email: 'tyler.brown@example.com',
+    password: 'passworddef2',
+    role: 'artist',
   },
 ];
 
 //CREATE HERE DATA FOR THE PROJECTS
-// should we create the data inside the artist data ?
 
 // connect to the database
 mongoose
@@ -67,14 +163,7 @@ mongoose
   })
   .then((artists) => {
     console.log('Artists created:', artists);
-    // if (artists.projects.length > 0) { artists.projects.forEach(project => { return Project.create(project) }) }
   })
-  // .then(() => {
-  //   return Project.create(projects)
-  // })
-  // .then((projects) => {
-  //   console.log('Artists created:', projects);
-  // })
   .then(() => {
     // Once the documents are created, close the DB connection
     return mongoose.connection.close();
@@ -87,3 +176,24 @@ mongoose
     // log erros if they happen
     console.log(`An error occurred while creating users from the DB: ${err}`);
   });
+
+  // {
+  //   fullName: 'Jesus Dias',
+  //   email: 'jesus.dias@example.com',
+  //   password: 'password789',
+  //   role: 'artist',
+  //   // projects: [ {owner: '',}]
+  // },
+
+  // .then((artists) => {
+  //   console.log('Artists created:', artists);
+  //    if (artists.projects.length > 0) { artists.projects.forEach(project => { return Project.create(project) }) }
+  // })
+  // .then(() => {
+  //   return Project.create(projects)
+  // })
+  // .then((projects) => {
+  //   console.log('Artists created:', projects);
+  // })
+
+// should we create the data inside the artist data ?
