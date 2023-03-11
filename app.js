@@ -52,6 +52,7 @@ DONE: (missing the styles)
 - Register route
 - Index route
 - Register hbs
+- Login-layout hbs
 
 
 WORKING:
