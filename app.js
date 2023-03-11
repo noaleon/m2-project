@@ -52,16 +52,16 @@ DONE: (missing the styles)
 - Register route
 - Index route
 - Register hbs
+- Login-layout hbs
 
 
 WORKING:
 - User route / user-profile.hbs
-
+- Middlewares
+- Login route / login.hbs
 
 TO DO:
 - Populate seeds.js with the projects
-- Middlewares
-- Login route / login.hbs
 -...
 
      

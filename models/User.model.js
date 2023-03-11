@@ -30,6 +30,7 @@ const userSchema = new Schema(
     phoneNumber: Number,
     location: String,
     profession: String,
+    // how to include projects array as a property ??
   },
   {
     timestamps: true,

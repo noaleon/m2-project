@@ -1,1 +1,20 @@
-<h1>hello world</h1>
+<div id='login-form'>
+  <h1 class='heading-1'>log <span class='dot'>in</span>.</h1>
+
+  <form class='login-form' action='/register' method='POST'>
+    <label>
+      E-mail
+      <input type='email' name='email' placeholder='artist@email.com' />
+    </label>
+
+    <label>Password
+      <input type='password' name='password' placeholder='********' />
+    </label>
+
+    <button class='btn-gradient' type='submit'>log in</button>
+
+    {{#if errorMessage}}
+      <p class='error'>{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
