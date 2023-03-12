@@ -59,22 +59,19 @@ router.post('/login', loggedOut, (req, res, next) => {
     .catch((error) => next(error));
 });
 
-//   end of Noa's code
+//////////// U S E R  P R O F I L E ///////////
 
-// added loggedIn condition
-router.get('/user-profile/:id', loggedIn, (req, res, next) => {
-  const { id } = req.params;
+router.get('/user-profile', loggedIn, (req, res, next) => {
+  const { user } = req.session;
 
-  User.findById(id)
-    .then((user) => {
-      if (user.role === 'artist') {
-        res.render('artists/artist-profile', user);
-      } else {
-        res.render('users/user-profile', user);
-      }
-    })
-    .catch((error) => next(error));
+  if (user.role === 'artist') {
+    res.render('artists/artist-profile', user);
+  } else {
+    res.render('users/user-profile', user);
+  }
 });
+
+//////////// L O G O U T ///////////
 
 router.get('/logout', loggedIn, (req, res) => {
   req.session.destroy();

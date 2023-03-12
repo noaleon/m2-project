@@ -1,1 +1,17 @@
 <h1>project details</h1>
+
+<ul>
+  {{#each projects}}
+    <li>{{this.category}}</li>
+    <br />
+    <li>{{this.title}}</li>
+    <br />
+    <li>{{this.description}}</li>
+    <br />
+    {{#each this.skills}}
+      <p>{{this}}</p>
+    {{/each}}
+    <br />
+    <img src='{{this.image}}' alt='' />
+  {{/each}}
+</ul>

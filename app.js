@@ -30,6 +30,11 @@ app.use(express.static('public/images'));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
+app.use('*', (req, res, next) => {
+  app.locals.user = req.session.user;
+  next();
+});
+
 // 👇 Start handling routes here
 const indexRoutes = require('./routes/index.routes');
 app.use('/', indexRoutes);
@@ -42,6 +47,9 @@ app.use('/', userRoute);
 
 const projectRoute = require('./routes/explore.route');
 app.use('/', projectRoute);
+
+const createProjectRoute = require('./routes/create-project.route');
+app.use('/', createProjectRoute);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);

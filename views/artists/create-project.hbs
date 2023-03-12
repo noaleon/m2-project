@@ -1,1 +1,35 @@
-<h1>create project</h1>
+{{!-- WORKING ON CREATE PROJECT - NOT DONE --}}
+
+<div id='create-project'>
+  <h1 class='heading-1'>create project <span class='dot'>.</span></h1>
+
+  <form class='create-project' action='/create-project' method='POST'>
+    <label>
+      Profession
+      <input type='text' name='profession' placeholder='your profession' />
+    </label>
+
+    <label>Description
+      <textarea
+        rows="4" cols="50"
+        name='description'
+        placeholder='about your job...'
+      />
+    </textarea>
+
+    <label>
+      Skills
+      <input
+        type='text'
+        name='skills'
+        placeholder='your skills ie: photoshop, figma, etc...'
+      />
+    </label>
+
+    <button class='btn-gradient' type='submit'>create my project</button>
+
+    {{#if errorMessage}}
+      <p class='error'>{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>

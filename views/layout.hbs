@@ -26,9 +26,15 @@
         <div>
           <ul class='header-menu'>
             <li><a href='/explore'>Explore </a><span> |</span></li>
-            <li><a href='/register'>Register </a><span> |</span></li>
-            <li><a href='/login'>Log in</a></li>
-            <li><a href='/logout'>Log out</a></li>
+
+            {{#if user}}
+              <li><a href='/user-profile'>My Profile </a><span> |</span></li>
+              <li><a href='/logout'>Log out </a></li>
+            {{else}}
+              <li><a href='/register'>Register </a><span> |</span></li>
+              <li><a href='/login'>Log in </a></li>
+            {{/if}}
+
           </ul>
         </div>
       </div>
