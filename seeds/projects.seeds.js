@@ -18,52 +18,34 @@ mongoose
         users.forEach((user) => {
           const project = {
             owner: user.id,
-            category: faker.commerce.product(),
-            title: faker.animal.cat(),
-            description: faker.hacker.phrase(),
-            skills: [faker.color.rgb(), faker.color.rgb()],
+            category: faker.name.jobType(),
+            title: faker.name.jobTitle(),
+            description: faker.lorem.paragraphs(),
+            skills: [faker.name.jobTitle(), faker.name.jobTitle()],
+            image: faker.image.abstract(640, 480, true),
           };
 
           projectsList.push(project);
         });
 
-        Project.create(projectsList);
+        Project.db.dropCollection('projects').then(() => {
+          Project.create(projectsList)
+            .then(() => {
+              // Once the documents are created, close the DB connection
+              return mongoose.connection.close();
+            })
+            .then(() => {
+              // Once the DB connection is closed, print a message
+              console.log('DB connection closed!');
+            });
+        });
       })
       .catch((error) => console.log(error));
   })
   .then((users) => {
     console.log('Users created:', users);
   })
-  .then(() => {
-    // Once the documents are created, close the DB connection
-    // return mongoose.connection.close();
-  })
-  .then(() => {
-    // Once the DB connection is closed, print a message
-    console.log('DB connection closed!');
-  })
   .catch((err) => {
     // log erros if they happen
     console.log(`An error occurred while creating users from the DB: ${err}`);
   });
-
-// {
-//   fullName: 'Jesus Dias',
-//   email: 'jesus.dias@example.com',
-//   password: 'password789',
-//   role: 'artist',
-//   // projects: [ {owner: '',}]
-// },
-
-// .then((artists) => {
-//   console.log('Artists created:', artists);
-//    if (artists.projects.length > 0) { artists.projects.forEach(project => { return Project.create(project) }) }
-// })
-// .then(() => {
-//   return Project.create(projects)
-// })
-// .then((projects) => {
-//   console.log('Artists created:', projects);
-// })
-
-// should we create the data inside the artist data ?

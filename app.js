@@ -56,16 +56,20 @@ DONE: (missing the styles)
 - Index route
 - Register hbs
 - Login-layout hbs
+- Login router
+- Populate seeds.js with the projects
+- Logout router
+- Middlewares
+- Login route / login.hbs
 
 
 WORKING:
 - User route / user-profile.hbs
-- Middlewares
-- Login route / login.hbs
 
 TO DO:
-- Populate seeds.js with the projects
--...
+- Do the login / logout button appear or disappear
+- projects-list.hbs put filters by category 
+- Do the artists/create-project
 
      
 
