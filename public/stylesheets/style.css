@@ -9,6 +9,7 @@
 :root {
   --black: #141414;
   --white: #f2f2f2;
+  --almost-white: #ededed;
   --dark-gray: #525252;
   --light-gray: #c4c4c4;
   --green: #3db68a;
@@ -27,6 +28,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 p {
@@ -44,6 +46,7 @@ p {
 /* buttons styles */
 button {
   border: none;
+  cursor: pointer;
 }
 
 .btn-white {
@@ -54,11 +57,38 @@ button {
   background-image: linear-gradient(#eeeeee, #ffffff);
 }
 
+.btn-white:hover {
+  transition-duration: 0.4s;
+  color: var(--white);
+  background-image: linear-gradient(#3db68a, #4bd89d);
+}
+
 .btn-gradient {
   color: var(--white);
   text-transform: uppercase;
   padding: 16px 32px;
   border-radius: 5px;
+  background-image: linear-gradient(#3db68a, #4bd89d);
+}
+
+.btn-gradient:hover {
+  transition-duration: 0.4s;
+  color: var(--black);
+  background-image: linear-gradient(#cbcbcb, #f7f7f7);
+}
+
+.btn-line {
+  color: var(--green);
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 5px;
+  border: 2px solid var(--green);
+  background-color: var(--white);
+}
+
+.btn-line:hover {
+  transition-duration: 0.4s;
+  color: var(--white);
   background-image: linear-gradient(#3db68a, #4bd89d);
 }
 
@@ -210,4 +240,24 @@ button {
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
   gap: 40px;
+}
+
+/* styles for all inputs, labels and textarea*/
+input,
+label {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  background-color: var(--almost-white);
+  border: none;
+  border-radius: 3px;
+}
+
+textarea {
+  resize: none;
 }

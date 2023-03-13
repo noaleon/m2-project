@@ -69,15 +69,15 @@ DONE: (missing the styles)
 - Logout router
 - Middlewares
 - Login route / login.hbs
+- Do the login / logout button appear or disappear
+- User route / user-profile.hbs
 
 
 WORKING:
-- User route / user-profile.hbs
+- Do the artists/create-project
 
 TO DO:
-- Do the login / logout button appear or disappear
 - projects-list.hbs put filters by category 
-- Do the artists/create-project
 
      
 

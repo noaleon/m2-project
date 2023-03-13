@@ -3,19 +3,15 @@
 <div id='create-project'>
   <h1 class='heading-1'>create project <span class='dot'>.</span></h1>
 
-  <form class='create-project' action='/create-project' method='POST'>
+  <form class='form' action='/create-project' method='POST' enctype="multipart/form-data">
     <label>
       Profession
       <input type='text' name='profession' placeholder='your profession' />
     </label>
 
     <label>Description
-      <textarea
-        rows="4" cols="50"
-        name='description'
-        placeholder='about your job...'
-      />
-    </textarea>
+      <textarea rows="5" cols="40" name='description' placeholder='about your job...'/></textarea>
+    </label>
 
     <label>
       Skills
@@ -24,6 +20,10 @@
         name='skills'
         placeholder='your skills ie: photoshop, figma, etc...'
       />
+    </label>
+
+    <label>Image
+      <input type="file" name="image">
     </label>
 
     <button class='btn-gradient' type='submit'>create my project</button>
