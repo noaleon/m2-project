@@ -1,13 +1,19 @@
-<h1>welcome {{fullName}} <span class='dot'>.</span></h1>
+<h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
 <div class='form'>
   <div>
-    <p>{{fullName}}</p>
-    <p>{{skills}}</p>
-    <p>{{location}}</p>
+  <label>{{fullName}}</label>
+  <label>{{skills}}</label>
+  <label>{{location}}</label>
   </div>
 
   <div>
-    <a href='/create-project' class='btn-line'>create project</a>
-    <a href='/edit-profile' class='btn-gradient'>edit profile</a>
+    <a href='/create-project' ><button class='btn-line' type='submit'>create project</button></a>
+    <a href='/edit-profile' ><button class='btn-gradient' type='submit'>edit profile</button></a>
   </div>
+  <h2>my projects</h2>
+</div>
+
+  {{#if errorMessage}}
+    <p class='error'>{{errorMessage}}</p>
+  {{/if}}
 </div>

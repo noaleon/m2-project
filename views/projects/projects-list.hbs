@@ -1,17 +1,21 @@
 <h1 class='heading-1'>explore projects<span class='dot'>.</span></h1>
-
-<ul>
+<div class='filter'>
+  Filter by
+</div>
+<div class='projects'>
   {{#each projects}}
-    <li>{{this.category}}</li>
-    <br />
-    <li>{{this.title}}</li>
-    <br />
-    <li>{{this.description}}</li>
-    <br />
-    {{#each this.skills}}
-      <p>{{this}}</p>
-    {{/each}}
-    <br />
-    <img src='{{this.image}}' alt='' />
+    <div class='card'>
+      <h5 class='card-title'>{{this.category}}</h5>
+      <img src='{{this.image}}' alt='' />
+      {{! <br /> }}
+      <h6 class='card-title'>{{this.title}}</h6>
+      <div class='dot'>
+        <a href='/projects-details'>see details</a>
+        <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
+      </div>
+      <a class='dot favorites' href='/'>
+        <img src='/images/star-outline-green.svg' alt='favorite' />
+      </a>
+    </div>
   {{/each}}
-</ul>
+</div>

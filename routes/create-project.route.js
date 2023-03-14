@@ -20,12 +20,14 @@ router.get('/create-project', loggedIn, (req, res, next) => {
 router.post(
   '/create-project',
   loggedIn,
+  isArtist,
   fileUploader.single('image'),
   (req, res, next) => {
-    const { profession, description, skills, image } = req.body;
+    const { title, category, description, skills, image } = req.body;
     const data = {
       imageURL: req.file.path,
-      profession,
+      title,
+      category,
       description,
       skills,
       image,

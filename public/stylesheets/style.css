@@ -80,9 +80,9 @@ button {
 .btn-line {
   color: var(--green);
   text-transform: uppercase;
-  padding: 16px 32px;
+  padding: 14.5px 32px;
   border-radius: 5px;
-  border: 2px solid var(--green);
+  border: 1.5px solid var(--green);
   background-color: var(--white);
 }
 
@@ -260,4 +260,38 @@ textarea {
 
 textarea {
   resize: none;
+}
+
+::-webkit-file-upload-button {
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  background-color: var(--light-gray);
+}
+
+/* project details  */
+
+.project-detail {
+  display: flex;
+  margin: 0 100px;
+}
+
+.project-img img {
+  height: 300px;
+  width: 500px;
+  padding-right: 40px;
+}
+
+.favorites {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter {
+  text-align: right;
+  border: 2px solid var(--green);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px 100px;
 }
