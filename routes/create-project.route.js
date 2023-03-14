@@ -15,25 +15,26 @@ router.get('/create-project', loggedIn, (req, res, next) => {
   res.render('artists/create-project');
 });
 
-// WORKING ON CREATE PROJECT ROUTER POST - NOT DONE
-
 router.post(
   '/create-project',
   loggedIn,
   isArtist,
   fileUploader.single('image'),
   (req, res, next) => {
-    const { title, category, description, skills, image } = req.body;
-    const data = {
-      imageURL: req.file.path,
-      title,
+    const { title, category, description, skills } = req.body;
+
+    const project = {
+      owner: req.session.user._id,
       category,
+      title,
       description,
-      skills,
-      image,
+      skills: skills.split(', '),
+      image: req.file.path,
     };
 
-    res.render('projects/project-details', data);
+    Project.create(project)
+      .then((project) => res.render('projects/project-details', project))
+      .catch((err) => next(err));
   },
 );
 

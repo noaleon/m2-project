@@ -51,6 +51,9 @@ app.use('/', projectRoute);
 const createProjectRoute = require('./routes/create-project.route');
 app.use('/', createProjectRoute);
 
+const editProjectRoute = require('./routes/edit-project.route');
+app.use('/', editProjectRoute);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

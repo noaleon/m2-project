@@ -1,0 +1,40 @@
+<div id='create-project'>
+  <h1 class='heading-1'>edit project <span class='dot'>.</span></h1>
+
+  <form class='form' action='/project/{{id}}/edit' method='POST' enctype="multipart/form-data">
+    <label>
+      Title
+      <input type='text' name='title' placeholder='{{project.title}}' />
+    </label>
+
+     <label>
+      Category
+      <input type='text' name='category' placeholder='{{project.category}}' />
+    </label>
+
+    <label>Description
+      <textarea rows="5" cols="40" name='description' placeholder='{{project.description}}'/></textarea>
+    </label>
+
+    <label>
+      Skills
+      <input
+        type='text'
+        name='skills'
+        placeholder='{{project.skills}}'
+      />
+    </label>
+
+    <label>Image
+      <input type="file" name="image">
+    </label>
+
+    <button class='btn-gradient' type='submit'>edit my project</button>
+
+    {{#if errorMessage}}
+      <p class='error'>{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
+
+{{!-- {{/with}} --}}
