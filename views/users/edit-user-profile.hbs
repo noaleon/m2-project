@@ -1,0 +1,31 @@
+<h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
+<div class='form'>
+
+  <form action="/users/edit" method="POST">
+    <label>
+      Name
+      <input type='text' name='fullName' placeholder='{{fullName}}' />
+    </label>
+    <label>
+      Location
+      <input type='text' name='location' placeholder='city name' />
+    </label>
+     <label>
+      Profession
+      <input type='text' name='profession' placeholder='your profession' />
+    </label>
+  <div>
+    <button class='btn-gradient' type='submit'>save</button>
+  </div>
+  </form>
+
+
+  <h2>my favorites projects<span class='dot'>.</span></h2>
+
+
+</div>
+
+  {{#if errorMessage}}
+    <p class='error'>{{errorMessage}}</p>
+  {{/if}}
+</div>

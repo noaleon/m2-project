@@ -1,5 +1,21 @@
-{{fullName}}
-<br />
-{{email}}
-<br />
-{{role}}
+<h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
+<div class='form'>
+  <div>
+  <label>E-mail: {{email}}</label>
+  <label>Location: {{location}}</label>
+  <label>Profession: {{profession}}</label>
+  </div>
+
+  <div>
+    <a href='/users/edit'><button class='btn-gradient' type='submit'>edit profile</button></a>
+  </div>
+
+  <h2>my favorites projects<span class='dot'>.</span></h2>
+
+
+</div>
+
+  {{#if errorMessage}}
+    <p class='error'>{{errorMessage}}</p>
+  {{/if}}
+</div>

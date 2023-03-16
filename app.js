@@ -68,16 +68,19 @@ DONE: (missing the styles)
 - Login route / login.hbs
 - Do the login / logout button appear or disappear
 - User route / user-profile.hbs
+- Do the artists/create-project
 
 
 WORKING:
-- Do the artists/create-project
 - style.css
+- favorites
 
 TO DO:
 - projects-list.hbs put filters by category 
 - if user is logged in, redirect to user-profile when click on register
 - styles
+- put a photo on home page
+- put comments: description field / button comment 
      
 
 

@@ -1,15 +1,18 @@
 <h1 class='heading-1'>welcome {{user.fullName}} <span class='dot'>.</span></h1>
-<div class='form'>
+{{!-- <div class='form'> --}}
+<div>
   <div>
-  <label>{{user.fullName}}</label>
-  <label>{{user.skills}}</label>
-  <label>{{user.location}}</label>
+    <label>Name: {{user.fullName}}</label>
+    <label>E-mail: {{user.email}}</label>
+    <label>Location: {{location}}</label>
+    <label>Profession: {{profession}}</label>
   </div>
 
   <div>
     <a href='/projects/create' ><button class='btn-line' type='submit'>create project</button></a>
-    <a href='/projects/{{user.id}}/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
+    <a href='/users/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
   </div>
+
   <h2>my projects<span class='dot'>.</span></h2>
 
    {{#each projects}}

@@ -23,7 +23,9 @@ router.get('/users/profile', loggedIn, (req, res, next) => {
       )
       .catch((err) => next(err));
   } else {
-    res.render('users/user-profile', user);
+    User.findById(req.session.user._id).then((user) => {
+      res.render('users/user-profile', user);
+    });
   }
 });
 
@@ -48,22 +50,32 @@ router.get('/users/:id/projects', loggedIn, (req, res, next) => {
 //////////// E D I T   P R O F I L E ///////////
 router.get('/users/edit', loggedIn, (req, res, next) => {
   User.findById(req.session.user._id)
-    .then((user) => res.render('view de form de edicao do user', user))
+    .then((user) => {
+      if (user.role === 'user') {
+        res.render('users/edit-user-profile', user);
+      } else {
+        res.render('artists/edit-artist-profile', user);
+      }
+    })
     .catch((err) => next(err));
 });
 
 router.post('/users/edit', loggedIn, (req, res, next) => {
-  const { fullName, profession } = req.body;
+  const { fullName, profession, location, skills } = req.body;
 
   const user = {
     fullName: fullName || undefined,
     profession: profession || undefined,
+    location: location || undefined,
+    skills: skills || undefined,
   };
 
   User.findByIdAndUpdate(req.session.user._id, user, { new: true })
-    .then(() => res.redirect('/users/profile'))
+    .then((editedUser) => res.render(`artists/artist-profile`, editedUser))
     .catch((err) => next(err));
 });
+
+//////////// F A V O R I T E   P R O J E C T S   BY  U S E R ///////////
 
 router.post('/users/projects/favorites/:id', loggedIn, (req, res, next) => {
   const { id } = req.params;

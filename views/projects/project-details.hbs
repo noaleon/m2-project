@@ -1,5 +1,5 @@
-<div id="project-details">
-  <h1 class="heading-1">project details <span class="dot">.</span></h1>
+<div id='project-details'>
+  <h1 class='heading-1'>project details <span class='dot'>.</span></h1>
 
   <div class='project-detail'>
     <div class='project-img'>
@@ -24,14 +24,14 @@
       <p>{{profession}}</p>
       <p>{{title}}</p>
       <p>{{category}}</p>
-      <h3>name:{{this.fullName}}</h3>
+      <h3>Artist: {{user.fullName}}</h3>
       <div>{{description}}</div>
 
       {{#each skills}}
         <li>{{this}}</li>
       {{/each}}
 
-      <div>Contact: email | phone</div>
+      <div>Contact: {{user.email}}</div>
 
       <form action='/users/projects/favorites/{{_id}}' method='POST'>
         <button class='dot favorites'>
