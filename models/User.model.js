@@ -27,6 +27,10 @@ const userSchema = new Schema(
       enum: ['user', 'artist'],
     },
     skills: [String],
+    favorites: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Project',
+    },
     phoneNumber: Number,
     location: String,
     profession: String,

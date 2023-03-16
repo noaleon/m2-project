@@ -6,72 +6,31 @@
       <h1 class='heading-1'>with the best customers<span
           class='dot'
         >.</span></h1>
-      <a class='btn-white' href='/explore'>Explore</a>
-      <a class='btn-gradient' href='/register'>Register</a>
+      <a class='btn-white' href='/projects/explore'>Explore</a>
+      <a class='btn-gradient' href='/auth/register'>Register</a>
     </div>
   </div>
 
   <section>
-    <h1 class='heading-1'>artists<span class='dot'>.</span></h1>
-    <div class='artists'>
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-        </div>
-      </div>
-
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-        </div>
-      </div>
-
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <h1 class='heading-1'>projects<span class='dot'>.</span></h1>
     <div class='projects'>
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-        </div>
-      </div>
+      {{#each projects}}
+        <div class='card'>
+          <h5 class='card-title'>{{this.category}}</h5>
+          <img src='{{this.image}}' alt='' />
+          <h6 class='card-title'>{{this.title}}</h6>
 
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-        </div>
-      </div>
+          <div class='dot'>
+            <a href='/projects/{{id}}'>see details</a>
+            <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
+          </div>
 
-      <div class='card bg-img bg-img-nature'>
-        <h5 class='card-title'>Project Title</h5>
-        <h6>Artist Name - Category</h6>
-        <div class='dot'>
-          <a href='/projects-details'>see details</a>
-          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
+          <a class='dot favorites' href='/'>
+            <img src='/images/star-outline-green.svg' alt='favorite' />
+          </a>
         </div>
-      </div>
+      {{/each}}
+
     </div>
   </section>
 

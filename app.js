@@ -39,20 +39,14 @@ app.use('*', (req, res, next) => {
 const indexRoutes = require('./routes/index.routes');
 app.use('/', indexRoutes);
 
-const registerRoute = require('./routes/register.route');
-app.use('/', registerRoute);
+const authRoute = require('./routes/auth.routes');
+app.use('/', authRoute);
 
-const userRoute = require('./routes/user.route');
+const userRoute = require('./routes/user.routes');
 app.use('/', userRoute);
 
-const projectRoute = require('./routes/explore.route');
+const projectRoute = require('./routes/project.routes');
 app.use('/', projectRoute);
-
-const createProjectRoute = require('./routes/create-project.route');
-app.use('/', createProjectRoute);
-
-const editProjectRoute = require('./routes/edit-project.route');
-app.use('/', editProjectRoute);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);

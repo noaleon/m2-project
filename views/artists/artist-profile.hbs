@@ -1,16 +1,34 @@
-<h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
+<h1 class='heading-1'>welcome {{user.fullName}} <span class='dot'>.</span></h1>
 <div class='form'>
   <div>
-  <label>{{fullName}}</label>
-  <label>{{skills}}</label>
-  <label>{{location}}</label>
+  <label>{{user.fullName}}</label>
+  <label>{{user.skills}}</label>
+  <label>{{user.location}}</label>
   </div>
 
   <div>
-    <a href='/create-project' ><button class='btn-line' type='submit'>create project</button></a>
-    <a href='/edit-profile' ><button class='btn-gradient' type='submit'>edit profile</button></a>
+    <a href='/projects/create' ><button class='btn-line' type='submit'>create project</button></a>
+    <a href='/projects/{{user.id}}/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
   </div>
-  <h2>my projects</h2>
+  <h2>my projects<span class='dot'>.</span></h2>
+
+   {{#each projects}}
+    <div class='card'>
+      <h5 class='card-title'>{{this.category}}</h5>
+      <img src='{{this.image}}' alt='' />
+      <h6 class='card-title'>{{this.title}}</h6>
+
+      <div class='dot'>
+        <a href='/projects/{{id}}'>see details</a>
+        <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
+      </div>
+
+      <a class='dot favorites' href='/'>
+        <img src='/images/star-outline-green.svg' alt='favorite' />
+      </a>
+    </div>
+  {{/each}}
+
 </div>
 
   {{#if errorMessage}}

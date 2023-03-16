@@ -1,19 +1,19 @@
 <div id='create-project'>
   <h1 class='heading-1'>edit project <span class='dot'>.</span></h1>
 
-  <form class='form' action='/project/{{id}}/edit' method='POST' enctype="multipart/form-data">
+  <form class='form' action='/projects/{{id}}/edit' method='POST' enctype="multipart/form-data">
     <label>
       Title
-      <input type='text' name='title' placeholder='{{project.title}}' />
+      <input type='text' name='title' placeholder='{{title}}' />
     </label>
 
      <label>
       Category
-      <input type='text' name='category' placeholder='{{project.category}}' />
+      <input type='text' name='category' placeholder='{{category}}' />
     </label>
 
     <label>Description
-      <textarea rows="5" cols="40" name='description' placeholder='{{project.description}}'/></textarea>
+      <textarea rows="5" cols="40" name='description' placeholder='{{description}}'/></textarea>
     </label>
 
     <label>
@@ -21,7 +21,7 @@
       <input
         type='text'
         name='skills'
-        placeholder='{{project.skills}}'
+        placeholder='{{skills}}'
       />
     </label>
 
