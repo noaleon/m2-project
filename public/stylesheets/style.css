@@ -47,12 +47,14 @@ p {
 button {
   border: none;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .btn-white {
   color: var(--black);
   text-transform: uppercase;
-  padding: 16px 32px;
+  padding: 1rem 6rem; /* changed px to rem and resized */
+  margin-right: 1rem;
   border-radius: 5px;
   background-image: linear-gradient(#eeeeee, #ffffff);
 }
@@ -66,7 +68,7 @@ button {
 .btn-gradient {
   color: var(--white);
   text-transform: uppercase;
-  padding: 16px 32px;
+  padding: 1rem 6rem; /* changed px to rem and resized */
   border-radius: 5px;
   background-image: linear-gradient(#3db68a, #4bd89d);
 }
@@ -103,19 +105,22 @@ button {
   gap: 20px;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 100px;
+  padding: 1rem 4rem;
 }
 
 .header-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .header-menu a {
   display: inline-block;
   padding: 16px 0;
   position: relative;
+  color: var(--white);
+  font-weight: 500;
 }
 
 /* footer */
@@ -127,6 +132,10 @@ button {
   align-items: center;
   justify-content: space-between;
   color: var(--white);
+}
+
+h4 {
+  font-weight: 200;
 }
 
 .footer-social {
@@ -142,6 +151,12 @@ button {
 
 .introduction {
   padding: 300px 100px 100px 100px;
+}
+
+.heading-index {
+  margin-bottom: 1.5rem;
+  font-size: 60px;
+  color: var(--white);
 }
 
 .heading-1 {
@@ -176,13 +191,26 @@ button {
   top: 0.5rem; /* changed px to rem */
   margin: 0 auto;
   width: 50vw; /* changed px to vw */
-  height: 60vh; /* changed px to vh */
+  height: 65vh; /* changed px to vh */
   background-color: var(--white);
   display: flex;
   flex-direction: column;
   padding: 50px;
   border-radius: 5px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  gap: 1rem;
+}
+
+.form input {
+  margin-top: 0.5rem;
+}
+
+.role {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 1rem 0;
 }
 
 .login-form {
@@ -194,9 +222,22 @@ button {
   background-color: var(--white);
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  gap: 1.5rem;
+  padding: 4rem;
   border-radius: 5px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-form label {
+  font-weight: 500;
+}
+
+.login-form input {
+  margin-top: 1rem;
+}
+
+#login {
+  margin-top: 1rem;
 }
 
 /* cards */
@@ -228,6 +269,7 @@ button {
   background-position: center center;
   background-size: cover;
 }
+
 /* Loads a specific image to a container */
 .bg-img-nature {
   background-image: linear-gradient(to bottom, transparent, #dadada7c),
@@ -270,10 +312,26 @@ textarea {
 }
 
 /* project details  */
+#project-details {
+  background-color: var(--light-gray);
+  position: absolute;
+  margin: 0 auto;
+  width: 100vw; /* changed px to vw */
+  height: 60vh; /* changed px to vh */
+}
 
 .project-detail {
   display: flex;
-  margin: 0 100px;
+  top: 0.5rem; /* changed px to rem */
+  margin: 0 auto;
+  width: 60vw; /* changed px to vw */
+  height: 80vh; /* changed px to vh */
+  background-color: var(--white);
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
 
 .project-img img {

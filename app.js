@@ -72,10 +72,12 @@ DONE: (missing the styles)
 
 WORKING:
 - Do the artists/create-project
+- style.css
 
 TO DO:
 - projects-list.hbs put filters by category 
-
+- if user is logged in, redirect to user-profile when click on register
+- styles
      
 
 

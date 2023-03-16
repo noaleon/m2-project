@@ -1,44 +1,46 @@
-<h1>project details</h1>
+<div id="project-details">
+  <h1 class="heading-1">project details <span class="dot">.</span></h1>
 
-<div class='project-detail'>
-  <div class='project-img'>
-    <img src='{{image}}' alt='uploaded-image' />
+  <div class='project-detail'>
+    <div class='project-img'>
+      <img src='{{image}}' alt='uploaded-image' />
 
-    {{#if isProjectOwner}}
-      <div class='actions'>
-        <a href='/projects/{{_id}}/edit'><button
-            class='btn-line'
-            type='submit'
-          >edit project</button></a>
+      {{#if isProjectOwner}}
+        <div class='actions'>
+          <a href='/projects/{{_id}}/edit'><button
+              class='btn-line'
+              type='submit'
+            >edit project</button></a>
 
-        <a href='/projects/{{_id}}/delete'><button
-            class='btn-gradient'
-            type='submit'
-          >delete project</button></a>
-      </div>
-    {{/if}}
+          <a href='/projects/{{_id}}/delete'><button
+              class='btn-gradient'
+              type='submit'
+            >delete project</button></a>
+        </div>
+      {{/if}}
+    </div>
+
+    <div class='project-info'>
+      <p>{{profession}}</p>
+      <p>{{title}}</p>
+      <p>{{category}}</p>
+      <h3>name:{{this.fullName}}</h3>
+      <div>{{description}}</div>
+
+      {{#each skills}}
+        <li>{{this}}</li>
+      {{/each}}
+
+      <div>Contact: email | phone</div>
+
+      <form action='/users/projects/favorites/{{_id}}' method='POST'>
+        <button class='dot favorites'>
+          <img src='/images/star-outline-green.svg' alt='favorite' />
+          My Favorite
+        </button>
+      </form>
+
+    </div>
+
   </div>
-
-  <div class='project-info'>
-    <p>{{profession}}</p>
-    <p>{{title}}</p>
-    <p>{{category}}</p>
-    <h3>name:{{this.fullName}}</h3>
-    <div>{{description}}</div>
-
-    {{#each skills}}
-      <li>{{this}}</li>
-    {{/each}}
-
-    <div>Contact: email | phone</div>
-
-    <form action='/users/projects/favorites/{{_id}}' method='POST'>
-      <button class='dot favorites'>
-        <img src='/images/star-outline-green.svg' alt='favorite' />
-        My Favorite
-      </button>
-    </form>
-
-  </div>
-
 </div>
