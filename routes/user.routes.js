@@ -17,24 +17,18 @@ router.get('/users/profile', loggedIn, (req, res, next) => {
   const { user } = req.session;
 
   if (user.role === 'artist') {
-    Project.find({ owner: req.session.user._id })
-      .then((projects) =>
-        res.render('artists/artist-profile', { user, projects }),
-      )
-      .catch((err) => next(err));
+    User.findById(req.session.user._id).then((user) => {
+      Project.find({ owner: req.session.user._id })
+        .then((projects) =>
+          res.render('artists/artist-profile', { user, projects }),
+        )
+        .catch((err) => next(err));
+    });
   } else {
     User.findById(req.session.user._id).then((user) => {
       res.render('users/user-profile', user);
     });
   }
-});
-
-// GET LOGGED USER PROJECTS
-router.get('/users/projects', loggedIn, (req, res, next) => {
-  Project.find({ owner: req.session.user._id })
-    // .then((projects) => res.render('mubaieughaiue hsb', { projects: projects }))
-    .then((projects) => res.json(projects))
-    .catch((err) => next(err));
 });
 
 // GET SPECIFIC USER PROJECTS
@@ -67,11 +61,13 @@ router.post('/users/edit', loggedIn, (req, res, next) => {
     fullName: fullName || undefined,
     profession: profession || undefined,
     location: location || undefined,
-    skills: skills || undefined,
+    skills: skills ? skills.split(', ') : undefined,
   };
 
   User.findByIdAndUpdate(req.session.user._id, user, { new: true })
-    .then((editedUser) => res.render(`artists/artist-profile`, editedUser))
+    .then((editedUser) => {
+      res.redirect('/users/profile');
+    })
     .catch((err) => next(err));
 });
 

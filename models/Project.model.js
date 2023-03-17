@@ -27,6 +27,7 @@ const projectSchema = new Schema(
     image: {
       type: String,
     },
+    comments: [String],
   },
   {
     timestamps: true,

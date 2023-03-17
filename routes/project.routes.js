@@ -112,4 +112,14 @@ router.get(
   },
 );
 
+//////////// P O S T  C O M M E N T ///////////
+router.post('/projects/:id/comments', loggedIn, (req, res, next) => {
+  const { comment } = req.body;
+  const { id } = req.params;
+
+  Project.findByIdAndUpdate(id, { $push: { comments: comment } })
+    .then((comment) => res.redirect(`/projects/${comment.id}`))
+    .catch((err) => next(err));
+});
+
 module.exports = router;
