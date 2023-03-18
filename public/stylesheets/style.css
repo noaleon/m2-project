@@ -159,6 +159,15 @@ h4 {
   color: var(--white);
 }
 
+.heading-explore {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10rem;
+  font-size: 72px;
+  margin-top: 5rem;
+  color: var(--white);
+}
+
 .heading-1 {
   display: flex;
   justify-content: flex-end;
@@ -166,6 +175,13 @@ h4 {
   font-size: 72px;
   margin-top: 5rem;
   color: var(--white);
+}
+
+.heading-2 {
+  font-size: 72px;
+  margin-top: 5rem;
+  color: var(--white);
+  margin-left: 7rem;
 }
 
 /* style page register.hbs */
