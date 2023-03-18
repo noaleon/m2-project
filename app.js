@@ -70,6 +70,8 @@ DONE: (missing the styles)
 - User route / user-profile.hbs
 - Do the artists/create-project
 - if user is logged in, redirect to user-profile when click on register
+- put comments: description field / button comment 
+
 
 
 WORKING:
@@ -157,7 +159,6 @@ TO DO:
 - projects-list.hbs put filters by category 
 - styles
 - put a photo on home page
-- put comments: description field / button comment 
 - rename path's
 
 

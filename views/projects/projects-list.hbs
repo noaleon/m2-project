@@ -1,8 +1,13 @@
 <h1 class='heading-1'>explore projects<span class='dot'>.</span></h1>
 
-<div class='filter'>
+<label class='filter'>
   Filter by
-</div>
+</label>
+<select id='filter' onchange='onSelectChange(event)'>
+  {{#each projects}}
+    <option value='{{this.category}}'>{{this.category}}</option>
+  {{/each}}
+</select>
 
 <div class='projects'>
 
@@ -25,3 +30,5 @@
   {{/each}}
 
 </div>
+
+<script src='/js/filter-page.js'></script>
