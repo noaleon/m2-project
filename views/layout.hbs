@@ -19,24 +19,23 @@
     <nav class='nav-bar header-bg'>
       <div class='header'>
         <a href='/'>
-          <img
-            src='/images/logo.svg'
-            width='50'
-            height='50'
-            alt='logo'
-          />
+          <img src='/images/logo.svg' width='50' height='50' alt='logo' />
           {{! <img src='' alt='logo' /> }}
         </a>
 
         <div>
           <ul class='header-menu'>
-            <li><a href='/projects/explore'>Explore </a></li><span class="dot"> |</span>
+            <li><a href='/projects/explore'>Explore </a></li><span class='dot'>
+              |</span>
 
             {{#if user}}
-              <li><a href='/users/profile'>My Profile </a></li><span class="dot"> |</span>
+              <li><a href='/users/profile'>My Profile </a></li><span
+                class='dot'
+              > |</span>
               <li><a href='/auth/logout'>Log out </a></li>
             {{else}}
-              <li><a href='/auth/register'>Register </a></li><span class="dot"> |</span>
+              <li><a href='/auth/register'>Register </a></li><span class='dot'>
+                |</span>
               <li><a href='/auth/login'>Log in </a></li>
             {{/if}}
 
