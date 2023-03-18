@@ -145,7 +145,7 @@ h4 {
 
 /* style page index.hbs */
 .introduction-bg {
-  background-color: #c4c4c4; /*change to bg image*/
+  background: url(images/bg-img.jpg);
   height: 600px;
 }
 
