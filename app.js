@@ -74,13 +74,13 @@ DONE: (missing the styles)
 WORKING:
 - style.css
 - favorites
+- put comments: description field / button comment 
 
 TO DO:
 - projects-list.hbs put filters by category 
 - if user is logged in, redirect to user-profile when click on register
 - styles
 - put a photo on home page
-- put comments: description field / button comment 
      
 
 
