@@ -20,6 +20,16 @@ router.get('/projects/explore', (req, res) => {
     .catch((error) => console.error(error));
 });
 
+////// G E T   P R O J E C T S   B Y   C A T E G O R Y /////
+// router.get('/projects/explore', (req, res) => {
+//   Project.find()
+//     .then((projects) => {
+      
+//       res.render('projects/projects-list', { projects });
+//     })
+//     .catch((error) => console.error(error));
+// });
+
 //////////// C R E A T E   P R O J E C T S ///////////
 router.get('/projects/create', loggedIn, (req, res, next) => {
   res.render('artists/create-project');
