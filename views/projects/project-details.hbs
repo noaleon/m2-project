@@ -1,5 +1,5 @@
 <div id='project-details'>
-  <h1 class='heading-1'>project details <span class='dot'>.</span></h1>
+  <h1 class='heading-2'>project details <span class='dot'>.</span></h1>
 
   <div class='project-detail'>
     <div class='project-img'>
@@ -24,6 +24,7 @@
       <p>{{profession}}</p>
       <p>{{title}}</p>
       <p>{{category}}</p>
+      <hr>
       <h3>Artist: {{user.fullName}}</h3>
       <div>{{description}}</div>
 
@@ -40,27 +41,29 @@
         </button>
       </form>
     </div>
-
-    <h5>comments here:</h5>
-    {{#each comments}}
-      <li>{{this}}</li>
-    {{/each}}
-
-    <form action='/projects/{{_id}}/comments' method='post'>
-      <label>Leave your comment:
-        <textarea
-          rows='5'
-          cols='40'
-          name='comment'
-          placeholder='leave your comment..'
-        ></textarea>
-      </label>
-      <button class='btn-gradient' type='submit'>post my comment</button>
-
-      {{#if errorMessage}}
-        <p class='error'>{{errorMessage}}</p>
-      {{/if}}
-    </form>
-
   </div>
+
+    <div class="comment-detail">
+      <h3>All comments:</h3>
+      <hr>
+      {{#each comments}}
+        <h4>{{this}}</h4>
+      {{/each}}
+
+      <form action='/projects/{{_id}}/comments' method='post'>
+        <label>Leave your comment:
+          <textarea
+            rows='5'
+            cols='40'
+            name='comment'
+            placeholder='leave your comment..'
+          ></textarea>
+        </label>
+        <button class='btn-gradient' type='submit'>post a comment</button>
+    </div>
+
+    {{#if errorMessage}}
+      <p class='error'>{{errorMessage}}</p>
+    {{/if}}
+  </form>
 </div>

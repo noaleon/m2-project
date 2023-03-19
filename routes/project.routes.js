@@ -13,6 +13,17 @@ const {
 
 //////////// G E T   A L L   P R O J E C T S ///////////
 router.get('/projects/explore', (req, res) => {
+  const { filter } = req.query;
+
+  if (req.query.filter) {
+    Project.find({ category: req.query.filter })
+      .then((projects) => {
+        res.render('projects/projects-list', { projects });
+      })
+      .catch((error) => console.error(error));
+    return;
+  }
+
   Project.find()
     .then((projects) => {
       res.render('projects/projects-list', { projects });
@@ -23,16 +34,22 @@ router.get('/projects/explore', (req, res) => {
 ////// G E T   P R O J E C T S   B Y   C A T E G O R Y /////
 // router.get('/projects/filters', (req, res) => {
 //   const { filter } = req.query;
-//   Project.find().then((projects) => {
-//     projects.map((project) => {
-//       if (project.filter === project.category) {
-//         res.send('hi');
-//       }
+//   Project.find()
+//     .where('category')
+//     .ne(req.query.filter)
+//     .then((projects) => {
+//       res.render(`/projects/explore`);
 //     });
-//   });
-//   res.json({ filter });
 // });
 
+// .then((projects) => {
+//   projects.map((project) => {
+//     if (project.filter === project.category) {
+//       res.send('hi');
+//     }
+//   });
+// });
+// res.json({ filter });
 // router.post('/projects/explore/', (req, res) => {
 //   const { category } = req.params;
 
@@ -48,15 +65,6 @@ router.get('/projects/explore', (req, res) => {
 //       });
 //     })
 //     .catch((error) => console.error(error));
-// });
-
-// router.post('/projects/:id/comments', loggedIn, (req, res, next) => {
-//   const { comment } = req.body;
-//   const { id } = req.params;
-
-//   Project.findByIdAndUpdate(id, { $push: { comments: comment } })
-//     .then((comment) => res.redirect(`/projects/${comment.id}`))
-//     .catch((err) => next(err));
 // });
 
 //////////// C R E A T E   P R O J E C T S ///////////
