@@ -7,7 +7,8 @@ const router = express.Router();
 /* GET home page */
 router.get('/', (req, res, next) => {
   // User.find({ role: 'artist' })
-  //   .then((artists) => res.render('index', artists))
+  //   .limit(3)
+  //   .then((artists) => res.render('index', { artists }))
   //   .catch((error) => next(error));
 
   Project.find()

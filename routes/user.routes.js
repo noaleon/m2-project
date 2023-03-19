@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const fileUploader = require('../config/cloudinary.config');
 const router = express.Router();
 const User = require('../models/User.model');
 const Project = require('../models/Project.model');
@@ -54,22 +55,28 @@ router.get('/users/edit', loggedIn, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.post('/users/edit', loggedIn, (req, res, next) => {
-  const { fullName, profession, location, skills } = req.body;
+router.post(
+  '/users/edit',
+  loggedIn,
+  fileUploader.single('image'),
+  (req, res, next) => {
+    const { fullName, profession, location, skills } = req.body;
 
-  const user = {
-    fullName: fullName || undefined,
-    profession: profession || undefined,
-    location: location || undefined,
-    skills: skills ? skills.split(', ') : undefined,
-  };
+    const user = {
+      fullName: fullName || undefined,
+      profession: profession || undefined,
+      location: location || undefined,
+      skills: skills ? skills.split(', ') : undefined,
+      image: req.file ? req.file.path : undefined,
+    };
 
-  User.findByIdAndUpdate(req.session.user._id, user, { new: true })
-    .then((editedUser) => {
-      res.redirect('/users/profile');
-    })
-    .catch((err) => next(err));
-});
+    User.findByIdAndUpdate(req.session.user._id, user, { new: true })
+      .then((editedUser) => {
+        res.redirect('/users/profile');
+      })
+      .catch((err) => next(err));
+  },
+);
 
 //////////// F A V O R I T E   P R O J E C T S   BY  U S E R ///////////
 
