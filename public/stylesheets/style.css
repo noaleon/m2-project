@@ -61,6 +61,7 @@ button {
   margin-right: 1rem;
   border-radius: 5px;
   background-image: linear-gradient(#eeeeee, #ffffff);
+  box-shadow: 1px 1px 2px #14141460;
 }
 
 .btn-white:hover {
@@ -75,6 +76,7 @@ button {
   padding: 1rem 6rem; /* changed px to rem and resized */
   border-radius: 5px;
   background-image: linear-gradient(#3db68a, #4bd89d);
+  box-shadow: 1px 1px 2px #14141460;
 }
 
 .btn-gradient:hover {
@@ -139,8 +141,8 @@ button {
   padding: 20px 100px;
   background-color: #c4c4c4;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   color: var(--white);
 }
 
@@ -155,9 +157,15 @@ h4 {
 }
 
 /* style page index.hbs */
-.introduction-bg {
-  background-color: #c4c4c4; /*change to bg image*/
+main {
+  background: url(https://images.pexels.com/photos/6713841/pexels-photo-6713841.jpeg) var(--green);
   height: 600px;
+  background-size: cover;
+  margin-bottom: 80rem;
+}
+
+.introduction-bg p {
+  text-shadow: 1px 1px 1px #14141430;
 }
 
 .introduction {
@@ -168,6 +176,7 @@ h4 {
   margin-bottom: 1.5rem;
   font-size: 60px;
   color: var(--white);
+  text-shadow: 1px 1px 2px #14141460;
 }
 
 .heading-explore {
@@ -309,7 +318,7 @@ h4 {
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 100px;
+  margin: 0 7rem;
   gap: 40px;
 }
 

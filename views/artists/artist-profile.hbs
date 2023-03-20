@@ -11,8 +11,12 @@
   </div>
 
   <div>
+    {{#if user}}
     <a href='/projects/create' ><button class='btn-line' type='submit'>create project</button></a>
     <a href='/users/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
+    {{else}}
+    <a href='/contact' ><button class='btn-line' type='submit'>contact me</button></a>
+    {{/if}}
   </div>
   <h2>my projects<span class='dot'>.</span></h2>
    {{#each projects}}

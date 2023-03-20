@@ -78,7 +78,7 @@ router.post(
   },
 );
 
-//////////// F A V O R I T E   P R O J E C T S   BY  U S E R ///////////
+//////////// F A V O R I T E   P R O J E C T S   B Y  U S E R ///////////
 
 router.post('/users/projects/favorites/:id', loggedIn, (req, res, next) => {
   const { id } = req.params;
@@ -94,6 +94,36 @@ router.post('/users/projects/favorites/:id', loggedIn, (req, res, next) => {
       res.json(user);
     })
     .catch((err) => next(err));
+});
+
+//////////// S E N D   M E S S A G E ///////////
+router.get('/send-email', (req, res) => {
+  res.render('contact')
+})
+
+router.post('/send-email', (req, res, next) => {
+  let { email, subject, message } = req.body;
+  res.render('message', { email, subject, message })
+});
+
+router.post('/send-email', (req, res, next) => {
+  let { email, subject, message } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'your email address',
+      pass: 'your email password'
+    }
+  });
+  transporter.sendMail({
+    from: '"My Awesome Project " <myawesome@project.com>',
+    to: email, 
+    subject: subject, 
+    text: message,
+    html: `<b>${message}</b>`
+  })
+  .then(info => res.render('message', {email, subject, message, info}))
+  .catch(error => console.log(error));
 });
 
 module.exports = router;
