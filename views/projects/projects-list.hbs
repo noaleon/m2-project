@@ -1,13 +1,13 @@
-<h1 class='heading-1'>explore projects<span class='dot'>.</span></h1>
+<h1 class='heading-2'>explore projects<span class='dot'>.</span></h1>
 
 <label class='filter'>
-  Filter by
+  Filter by:
+  <select class='custom-select' id='filter' onchange='onSelectChange(event)'>
+    {{#each projects}}
+      <option value='{{this.category}}'>{{this.category}}</option>
+    {{/each}}
+  </select>
 </label>
-<select id='filter' onchange='onSelectChange(event)'>
-  {{#each projects}}
-    <option value='{{this.category}}'>{{this.category}}</option>
-  {{/each}}
-</select>
 
 <div class='projects'>
 
@@ -17,7 +17,7 @@
       <img src='{{this.image}}' alt='' />
       <h6 class='card-title'>{{this.title}}</h6>
 
-      <div class='dot'>
+      <div class='dot see-details'>
         <a href='/projects/{{id}}'>see details</a>
         <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
       </div>

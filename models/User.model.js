@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
   {
     fullName: {
@@ -34,6 +33,7 @@ const userSchema = new Schema(
     phoneNumber: Number,
     location: String,
     profession: String,
+    image: String,
   },
   {
     timestamps: true,

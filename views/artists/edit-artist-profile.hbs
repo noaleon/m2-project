@@ -1,6 +1,7 @@
+<div id='edit-profile'>
 <h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
-<div class='form'>
 
+<div class='form'>
   <form action="/users/edit" method="POST">
     <label>
       Name
@@ -22,15 +23,14 @@
       Skills
       <input type='text' name='skills' placeholder='{{skills}}' />
     </label>
+    <label>Image
+      <input type="file" name="{{image}}">
+    </label>
   <div>
     <button class='btn-gradient' type='submit'>save</button>
   </div>
   </form>
-
-
-  <h2>my favorites projects<span class='dot'>.</span></h2>
-
-
+</div>
 </div>
 
   {{#if errorMessage}}

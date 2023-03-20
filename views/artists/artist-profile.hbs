@@ -1,8 +1,8 @@
-<h1 class='heading-1'>welcome {{user.fullName}} <span class='dot'>.</span></h1>
+<h1 class='heading-2'>welcome {{user.fullName}} <span class='dot'>.</span></h1>
 
-{{!-- <div class='form'> --}}
 <div>
   <div>
+    <img src='{{user.image}}' alt='' />
     <label>Name: {{user.fullName}}</label>
     <label>E-mail: {{user.email}}</label>
     <label>Location: {{user.location}}</label>
@@ -11,12 +11,14 @@
   </div>
 
   <div>
+    {{#if user}}
     <a href='/projects/create' ><button class='btn-line' type='submit'>create project</button></a>
     <a href='/users/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
+    {{else}}
+    <a href='/contact' ><button class='btn-line' type='submit'>contact me</button></a>
+    {{/if}}
   </div>
-
   <h2>my projects<span class='dot'>.</span></h2>
-
    {{#each projects}}
     <div class='card'>
       <h5 class='card-title'>{{this.category}}</h5>
@@ -33,7 +35,6 @@
       </a>
     </div>
   {{/each}}
-
 </div>
 
   {{#if errorMessage}}
