@@ -89,5 +89,5 @@ WORKING:
 TO DO:
 - styles
 - rename path's
-
+- limit artist to 3 index.hbs and redirect to user
 */

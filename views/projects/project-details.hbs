@@ -21,9 +21,8 @@
     </div>
 
     <div class='project-info'>
-      <p>{{this.profession}}</p>
-      <p>{{this.title}}</p>
-      <p>{{this.category}}</p>
+      <h2>{{this.title}}</h2>
+      <h4>{{this.category}}</h4>
       <hr>
       <h3>Artist: {{this.owner.fullName}}</h3>
       <div>{{this.description}}</div>
@@ -32,7 +31,10 @@
         <li>{{this}}</li>
       {{/each}}
       
-      <button><a href="/send-email">contact</a></button>
+      {{#if isProjectOwner}}
+      {{else}}
+      <button class="btn-gradient"><a href="/send-email">contact</a></button>
+      {{/if}}
 
       <form action='/users/projects/favorites/{{_id}}' method='POST'>
         <button class='dot favorites'>
@@ -41,13 +43,14 @@
         </button>
       </form>
     </div>
+
   </div>
 
     <div class="comment-detail">
-      <h3>All comments:</h3>
+      <h5>All comments:</h5>
       <hr>
       {{#each comments}}
-        <h4>{{this}}</h4>
+        <h6>{{this}}</h6>
       {{/each}}
 
       <form action='/projects/{{_id}}/comments' method='post'>
