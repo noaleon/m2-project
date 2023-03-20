@@ -8,7 +8,6 @@ userCheckbox.addEventListener('click', (event) => {
 artistCheckbox.addEventListener('click', (event) => {
   userCheckbox.checked = false;
 });
-
 // const filterCat = document.querySelector('#filter');
 
 // filterCat.addEventListener('click', (event) => {

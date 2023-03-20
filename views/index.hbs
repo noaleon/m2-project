@@ -1,11 +1,9 @@
 {{! HOME PAGE }}
-<main class='introduction-bg'>
+<main>
   <div class='introduction'>
-    <div>
+    <div class='introduction-bg'>
       <p>we connect the best professional artists</p>
-      <h1 class='heading-index'>with the best customers<span
-          class='dot'
-        >.</span></h1>
+      <h1 class='heading-index'>with the best customers<span class='dot'>.</span></h1>
       <a class='btn-white' href='/projects/explore'>Explore</a>
       {{#if user}}
         <a class='btn-gradient' href='/users/profile'>My Profile</a>
@@ -18,14 +16,14 @@
   <section>
     <h1 class='heading-explore'>artists<span class='dot'>.</span></h1>
     <div class='artists'>
-      {{#each users}}
+      {{#each user}}
         <div class='card'>
           <h5 class='card-title'>{{this.fullName}}</h5>
           <img src='{{this.image}}' alt='' />
           <h6 class='card-title'>{{this.profession}}</h6>
 
           <div class='dot'>
-            <a href='/users/{{id}}'>see details</a>
+            <a href='/users/{{this.id}}'>see details</a>
             <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
           </div>
         </div>

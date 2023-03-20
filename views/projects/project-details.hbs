@@ -21,18 +21,18 @@
     </div>
 
     <div class='project-info'>
-      <p>{{profession}}</p>
-      <p>{{title}}</p>
-      <p>{{category}}</p>
+      <p>{{this.profession}}</p>
+      <p>{{this.title}}</p>
+      <p>{{this.category}}</p>
       <hr>
-      <h3>Artist: {{user.fullName}}</h3>
-      <div>{{description}}</div>
+      <h3>Artist: {{this.owner.fullName}}</h3>
+      <div>{{this.description}}</div>
 
       {{#each skills}}
         <li>{{this}}</li>
       {{/each}}
-
-      <div>Contact: {{user.email}}</div>
+      
+      <button><a href="/send-email">contact</a></button>
 
       <form action='/users/projects/favorites/{{_id}}' method='POST'>
         <button class='dot favorites'>
