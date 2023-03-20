@@ -133,11 +133,13 @@ button {
   color: var(--dark-gray);
 }
 
-/* footer */
+/* footer 
+position:absolute;
+bottom: 0;
+width:100vw;*/
 .footer-bg {
   position: relative;
-  top: 120vh;
-  margin-top: 100vh;
+  top: 300px;
   padding: 20px 100px;
   background-color: #c4c4c4;
   display: flex;
@@ -251,9 +253,6 @@ main {
   margin: 1rem 0;
 }
 
-.role label {
-}
-
 .login-form {
   position: relative;
   top: 0.5rem;
@@ -355,8 +354,8 @@ textarea {
 /* project details  */
 #project-details {
   background-color: var(--light-gray);
-  position: absolute;
-  margin: 0 auto;
+  position:sticky;
+  margin: -80px auto 22rem;
   width: 100vw; /* changed px to vw */
   height: 60vh; /* changed px to vh */
 }
