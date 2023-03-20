@@ -18,13 +18,21 @@
       <h6 class='card-title'>{{this.title}}</h6>
 
       <div class='dot see-details'>
-        <a href='/projects/{{id}}'>see details</a>
+        <a href='/projects/{{_id}}'>see details</a>
         <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
       </div>
 
-      <a class='dot favorites' href='/'>
-        <img src='/images/star-outline-green.svg' alt='favorite' />
-      </a>
+      <button
+        class='dot favorites'
+        onclick='toggleFavorite(event)'
+        data-id='{{_id}}'
+      >
+        {{#if this.isMyFavorite}}
+          <img src='/images/star-green.svg' alt='favorite' />
+        {{else}}
+          <img src='/images/star-outline-green.svg' alt='favorite' />
+        {{/if}}
+      </button>
 
     </div>
   {{/each}}
@@ -32,3 +40,4 @@
 </div>
 
 <script src='/js/filter-page.js'></script>
+<script src='/js/toggle-favorite.js'></script>

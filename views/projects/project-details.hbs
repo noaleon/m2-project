@@ -36,12 +36,18 @@
       <button class="btn-gradient"><a href="/send-email">contact</a></button>
       {{/if}}
 
-      <form action='/users/projects/favorites/{{_id}}' method='POST'>
-        <button class='dot favorites'>
+        <button
+        class='dot favorites'
+        onclick='toggleFavorite(event)'
+        data-id='{{_id}}'
+      >
+        {{#if this.isMyFavorite}}
+          <img src='/images/star-green.svg' alt='favorite' />
+        {{else}}
           <img src='/images/star-outline-green.svg' alt='favorite' />
-          My Favorite
-        </button>
-      </form>
+        {{/if}}
+        Favorite
+      </button>
     </div>
 
   </div>
@@ -70,3 +76,5 @@
     {{/if}}
   </form>
 </div>
+
+<script src='/js/toggle-favorite.js'></script>

@@ -9,14 +9,13 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   User.find({ role: 'artist' })
     .limit(3)
-    .then((artists) => res.render('index', { artists }))
-    .catch((error) => next(error));
-});
-router.get('/', (req, res, next) => {
-  Project.find()
-    .limit(3)
-    .then((projects) => {
-      res.render('index', { projects });
+    .then((artists) => {
+      Project.find()
+        .limit(3)
+        .then((projects) => {
+          res.render('index', { projects, artists });
+        })
+        .catch((error) => next(error));
     })
     .catch((error) => next(error));
 });

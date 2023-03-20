@@ -12,21 +12,24 @@ const {
 } = require('../middleware/route-guard.js');
 
 //////////// G E T   A L L   P R O J E C T S ///////////
-router.get('/projects/explore', (req, res) => {
-  const { filter } = req.query;
-
-  if (req.query.filter) {
-    Project.find({ category: req.query.filter })
-      .then((projects) => {
-        res.render('projects/projects-list', { projects });
-      })
-      .catch((error) => console.error(error));
-    return;
-  }
-
+router.get('/projects/explore', (req, res, next) => {
   Project.find()
     .then((projects) => {
-      res.render('projects/projects-list', { projects });
+      User.findById(req.session.user._id)
+        .then((user) => {
+          const projectsWithOwnFavorites = projects.map((mongoProject) => {
+            const project = mongoProject.toObject();
+            return {
+              ...project,
+              isMyFavorite: user.favorites.includes(project._id),
+            };
+          });
+
+          return res.render('projects/projects-list', {
+            projects: projectsWithOwnFavorites,
+          });
+        })
+        .catch((error) => next(error));
     })
     .catch((error) => console.error(error));
 });
@@ -98,12 +101,48 @@ router.post(
 //////////// G E T   O N E   P R O J E C T ///////////
 router.get('/projects/:id', loggedIn, (req, res, next) => {
   const { id } = req.params;
+  const userId = req.session.user._id;
 
   Project.findById(id)
     .populate('owner')
     .then((project) => {
-      const isProjectOwner = req.session.user._id === project.owner.id;
+      const isProjectOwner = userId === project.owner.id;
       const projectWithOwner = { ...project.toObject(), isProjectOwner };
+
+      User.findById(userId)
+        .populate('favorites')
+        .then((user) => {
+          const favProject = user.favorites.find(
+            (favorite) => favorite.id === id,
+          );
+
+          if (favProject) {
+            User.findByIdAndUpdate(
+              userId,
+              {
+                $pull: { favorites: projectId },
+              },
+              { new: true },
+            )
+              .then(() => {
+                return res.sendStatus(200);
+              })
+              .catch((err) => next(err));
+          } else {
+            User.findByIdAndUpdate(
+              userId,
+              {
+                $push: { favorites: projectId },
+              },
+              { new: true },
+            )
+              .then(() => {
+                return res.sendStatus(201);
+              })
+              .catch((err) => next(err));
+          }
+        })
+        .catch((err) => next(err));
 
       res.render('projects/project-details', projectWithOwner);
     })

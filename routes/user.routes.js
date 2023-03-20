@@ -71,7 +71,7 @@ router.post(
     };
 
     User.findByIdAndUpdate(req.session.user._id, user, { new: true })
-      .then((editedUser) => {
+      .then(() => {
         res.redirect('/users/profile');
       })
       .catch((err) => next(err));
@@ -80,30 +80,54 @@ router.post(
 
 //////////// F A V O R I T E   P R O J E C T S   B Y  U S E R ///////////
 
-router.post('/users/projects/favorites/:id', loggedIn, (req, res, next) => {
-  const { id } = req.params;
+router.post('/users/projects/favorites', loggedIn, (req, res, next) => {
+  const { projectId } = req.body;
+  const userId = req.session.user._id;
 
-  User.findByIdAndUpdate(
-    req.session.user._id,
-    {
-      $push: { favorites: id },
-    },
-    { new: true },
-  )
+  User.findById(userId)
+    .populate('favorites')
     .then((user) => {
-      res.json(user);
+      const favProject = user.favorites.find(
+        (favorite) => favorite.id === projectId,
+      );
+
+      if (favProject) {
+        User.findByIdAndUpdate(
+          userId,
+          {
+            $pull: { favorites: projectId },
+          },
+          { new: true },
+        )
+          .then(() => {
+            return res.sendStatus(200);
+          })
+          .catch((err) => next(err));
+      } else {
+        User.findByIdAndUpdate(
+          userId,
+          {
+            $push: { favorites: projectId },
+          },
+          { new: true },
+        )
+          .then(() => {
+            return res.sendStatus(201);
+          })
+          .catch((err) => next(err));
+      }
     })
     .catch((err) => next(err));
 });
 
 //////////// S E N D   M E S S A G E ///////////
 router.get('/send-email', (req, res) => {
-  res.render('contact')
-})
+  res.render('contact');
+});
 
 router.post('/send-email', (req, res, next) => {
   let { email, subject, message } = req.body;
-  res.render('message', { email, subject, message })
+  res.render('message', { email, subject, message });
 });
 
 router.post('/send-email', (req, res, next) => {
@@ -112,18 +136,19 @@ router.post('/send-email', (req, res, next) => {
     service: 'Gmail',
     auth: {
       user: 'your email address',
-      pass: 'your email password'
-    }
+      pass: 'your email password',
+    },
   });
-  transporter.sendMail({
-    from: '"My Awesome Project " <myawesome@project.com>',
-    to: email, 
-    subject: subject, 
-    text: message,
-    html: `<b>${message}</b>`
-  })
-  .then(info => res.render('message', {email, subject, message, info}))
-  .catch(error => console.log(error));
+  transporter
+    .sendMail({
+      from: '"My Awesome Project " <myawesome@project.com>',
+      to: email,
+      subject: subject,
+      text: message,
+      html: `<b>${message}</b>`,
+    })
+    .then((info) => res.render('message', { email, subject, message, info }))
+    .catch((error) => console.log(error));
 });
 
 module.exports = router;
