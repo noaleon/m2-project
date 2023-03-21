@@ -1,41 +1,47 @@
 <h1 class='heading-2'>welcome {{user.fullName}} <span class='dot'>.</span></h1>
 
-<div>
-  <div>
-    <img src='{{user.image}}' alt='' />
-    <label>Name: {{user.fullName}}</label>
-    <label>E-mail: {{user.email}}</label>
-    <label>Location: {{user.location}}</label>
-    <label>Profession: {{user.profession}}</label>
-    <label>My Skills: {{user.skills}}</label>
-  </div>
-
-  <div>
-    {{#if user}}
-    <a href='/projects/create' ><button class='btn-line' type='submit'>create project</button></a>
-    <a href='/users/edit' ><button class='btn-gradient' type='submit'>edit profile</button></a>
-    {{else}}
-    <a href='/contact' ><button class='btn-line' type='submit'>contact me</button></a>
-    {{/if}}
-  </div>
-  <h2>my projects<span class='dot'>.</span></h2>
-   {{#each projects}}
-    <div class='card'>
-      <h5 class='card-title'>{{this.category}}</h5>
-      <img src='{{this.image}}' alt='' />
-      <h6 class='card-title'>{{this.title}}</h6>
-
-      <div class='dot'>
-        <a href='/projects/{{id}}'>see details</a>
-        <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
-      </div>
-
-      <a class='dot favorites' href='/'>
-        <img src='/images/star-outline-green.svg' alt='favorite' />
-      </a>
+<div class='wrapper-profile'>
+  <div class='user-profile'>
+    <div>
+      <img src='{{image}}' alt='' />
+      <label>Name: {{user.fullName}}</label>
+      <label>E-mail: {{user.email}}</label>
+      <label>Location: {{user.location}}</label>
+      <label>Profession: {{user.profession}}</label>
+      <label>My Skills: {{user.skills}}</label>
     </div>
-  {{/each}}
-</div>
+
+    <div>
+      {{#if user}}
+        <a href='/projects/create'><button class='btn-line' type='submit'>create
+            project</button></a>
+        <a href='/users/edit'><button class='btn-gradient' type='submit'>edit
+            profile</button></a>
+      {{else}}
+        <a href='/contact'><button class='btn-line' type='submit'>contact me</button></a>
+      {{/if}}
+    </div>
+  </div>
+
+  <h2>my projects<span class='dot'>.</span></h2>
+  <div class='wrapper-projects'>
+    {{#each projects}}
+      <div class='card'>
+        <img class='card-img' src='{{this.image}}' alt='' />
+        <h5 class='card-title'>{{this.title}}</h5>
+        <p class='card-subtitle'>{{this.category}}</p>
+
+        <div class='dot'>
+          <a href='/projects/{{id}}'>see details</a>
+          <img class='icon' src='/images/arrow.svg' alt='arrow icon' />
+        </div>
+
+        <a class='dot favorites' href='/'>
+          <img src='/images/star-outline-green.svg' alt='favorite' />
+        </a>
+      </div>
+    {{/each}}
+  </div>
 
   {{#if errorMessage}}
     <p class='error'>{{errorMessage}}</p>

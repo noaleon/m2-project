@@ -160,7 +160,8 @@ h4 {
 
 /* style page index.hbs */
 main {
-  background: url(https://images.pexels.com/photos/6713841/pexels-photo-6713841.jpeg) var(--green);
+  background: url(https://images.pexels.com/photos/6713841/pexels-photo-6713841.jpeg)
+    var(--green);
   height: 600px;
   background-size: cover;
   margin-bottom: 80rem;
@@ -294,6 +295,11 @@ main {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.56s ease-in-out;
+  /* background-image: linear-gradient(to bottom, transparent, #dadada7c); */
+}
+
+.card-img {
+  width: 100%;
 }
 
 .card-title {
@@ -302,18 +308,20 @@ main {
   font-size: 2rem;
   line-height: 1;
   font-weight: 600;
+  text-align: right;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  text-align: right;
+  line-height: 1;
+  padding: 0.5rem;
 }
 
 .bg-img {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-}
-
-/* Loads a specific image to a container */
-.bg-img-nature {
-  background-image: linear-gradient(to bottom, transparent, #dadada7c),
-    url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
 }
 
 .artists,
@@ -354,7 +362,7 @@ textarea {
 /* project details  */
 #project-details {
   background-color: var(--light-gray);
-  position:sticky;
+  position: sticky;
   margin: -80px auto 22rem;
   width: 100vw; /* changed px to vw */
   height: 60vh; /* changed px to vh */
@@ -380,10 +388,32 @@ textarea {
   padding-right: 40px;
 }
 
+.wrapper-profile {
+  position: relative;
+  top: 0.5rem;
+  margin: 0 auto;
+  width: 70vw;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  gap: 1rem;
+}
+
+.wrapper-projects {
+  display: flex;
+  gap: 10px;
+}
+
 .favorites {
   display: flex;
   align-items: center;
   gap: 5px;
+  background: none;
+  padding: 10px;
 }
 
 .filter {
@@ -410,7 +440,15 @@ textarea {
   padding: 50px;
   font-weight: 500;
 }
-
+.see-details {
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+}
 .see-details:hover {
   color: var(--dark-gray);
+}
+
+.actions {
+  padding: 20px 0;
 }

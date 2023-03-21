@@ -13,9 +13,9 @@
 
   {{#each projects}}
     <div class='card'>
-      <h5 class='card-title'>{{this.category}}</h5>
-      <img src='{{this.image}}' alt='' />
-      <h6 class='card-title'>{{this.title}}</h6>
+      <img class='card-img' src='{{this.image}}' alt='' />
+      <h5 class='card-title'>{{this.title}}</h5>
+      <p class='card-subtitle'>{{this.category}}</p>
 
       <div class='dot see-details'>
         <a href='/projects/{{_id}}'>see details</a>
