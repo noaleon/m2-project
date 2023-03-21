@@ -11,64 +11,57 @@ const {
   isArtist,
 } = require('../middleware/route-guard.js');
 
-//////////// G E T   A L L   P R O J E C T S ///////////
+//////////// G E T   A L L   P R O J E C T S AND FILTER ///////////
 router.get('/projects/explore', (req, res, next) => {
+  const { filter } = req.query;
+
+  if (filter) {
+    Project.find()
+      .then((projects) => {
+        const allCategories = projects.map((p) => p.category);
+        const filteredProjects = projects.filter((p) => p.category === filter);
+
+        res.render('projects/projects-list', {
+          projects: filteredProjects,
+          allCategories,
+        });
+      })
+      .catch((error) => console.error(error));
+    return;
+  }
+
+  if (req.session && req.session.user && req.session.user._id) {
+    Project.find()
+      .then((projects) => {
+        const allCategories = projects.map((p) => p.category);
+
+        User.findById(req.session.user._id)
+          .then((user) => {
+            const projectsWithOwnFavorites = projects.map((mongoProject) => {
+              const project = mongoProject.toObject();
+              return {
+                ...project,
+                isMyFavorite: user.favorites.includes(project._id),
+              };
+            });
+
+            return res.render('projects/projects-list', {
+              projects: projectsWithOwnFavorites,
+              allCategories,
+            });
+          })
+          .catch((error) => next(error));
+      })
+      .catch((error) => console.error(error));
+  }
+
   Project.find()
     .then((projects) => {
-      User.findById(req.session.user._id)
-        .then((user) => {
-          const projectsWithOwnFavorites = projects.map((mongoProject) => {
-            const project = mongoProject.toObject();
-            return {
-              ...project,
-              isMyFavorite: user.favorites.includes(project._id),
-            };
-          });
-
-          return res.render('projects/projects-list', {
-            projects: projectsWithOwnFavorites,
-          });
-        })
-        .catch((error) => next(error));
+      const allCategories = projects.map((p) => p.category);
+      return res.render('projects/projects-list', { projects, allCategories });
     })
     .catch((error) => console.error(error));
 });
-
-////// G E T   P R O J E C T S   B Y   C A T E G O R Y /////
-// router.get('/projects/filters', (req, res) => {
-//   const { filter } = req.query;
-//   Project.find()
-//     .where('category')
-//     .ne(req.query.filter)
-//     .then((projects) => {
-//       res.render(`/projects/explore`);
-//     });
-// });
-
-// .then((projects) => {
-//   projects.map((project) => {
-//     if (project.filter === project.category) {
-//       res.send('hi');
-//     }
-//   });
-// });
-// res.json({ filter });
-// router.post('/projects/explore/', (req, res) => {
-//   const { category } = req.params;
-
-//   Project.find()
-//     .then((projects) => {
-//       projects.map((filteredProject) => {
-//         console.log(filteredProject);
-//         if (category === filteredProject.category) {
-//           res.redirect(`/projects/${filteredProject.category}`, {
-//             filteredProject,
-//           });
-//         }
-//       });
-//     })
-//     .catch((error) => console.error(error));
-// });
 
 //////////// C R E A T E   P R O J E C T S ///////////
 router.get('/projects/create', loggedIn, (req, res, next) => {

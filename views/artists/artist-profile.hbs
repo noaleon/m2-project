@@ -2,25 +2,31 @@
 
 <div class='wrapper-profile'>
   <div class='user-profile'>
-    <div>
-      <img src='{{image}}' alt='' />
-      <label>Name: {{user.fullName}}</label>
-      <label>E-mail: {{user.email}}</label>
-      <label>Location: {{user.location}}</label>
-      <label>Profession: {{user.profession}}</label>
-      <label>My Skills: {{user.skills}}</label>
+    <div class='user-profile-info'>
+      <img class='user-profile-img' src='{{user.image}}' alt='' />
+      <div>
+        <label>Name: {{user.fullName}}</label>
+        <label>E-mail: {{user.email}}</label>
+        <label>Location: {{user.location}}</label>
+        <label>Profession: {{user.profession}}</label>
+        <label>My Skills: {{user.skills}}</label>
+        <div>
+          {{#if user}}
+            <a href='/projects/create'><button
+                class='btn-line'
+                type='submit'
+              >create project</button></a>
+            <a href='/users/edit'><button
+                class='btn-gradient'
+                type='submit'
+              >edit profile</button></a>
+          {{else}}
+            <a href='/contact'><button class='btn-line' type='submit'>contact me</button></a>
+          {{/if}}
+        </div>
+      </div>
     </div>
 
-    <div>
-      {{#if user}}
-        <a href='/projects/create'><button class='btn-line' type='submit'>create
-            project</button></a>
-        <a href='/users/edit'><button class='btn-gradient' type='submit'>edit
-            profile</button></a>
-      {{else}}
-        <a href='/contact'><button class='btn-line' type='submit'>contact me</button></a>
-      {{/if}}
-    </div>
   </div>
 
   <h2>my projects<span class='dot'>.</span></h2>

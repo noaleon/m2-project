@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
+require('dotenv').config();
 
 const MONGO_URI = process.env.MONGODB_URI;
 
@@ -177,23 +178,23 @@ mongoose
     console.log(`An error occurred while creating users from the DB: ${err}`);
   });
 
-  // {
-  //   fullName: 'Jesus Dias',
-  //   email: 'jesus.dias@example.com',
-  //   password: 'password789',
-  //   role: 'artist',
-  //   // projects: [ {owner: '',}]
-  // },
+// {
+//   fullName: 'Jesus Dias',
+//   email: 'jesus.dias@example.com',
+//   password: 'password789',
+//   role: 'artist',
+//   // projects: [ {owner: '',}]
+// },
 
-  // .then((artists) => {
-  //   console.log('Artists created:', artists);
-  //    if (artists.projects.length > 0) { artists.projects.forEach(project => { return Project.create(project) }) }
-  // })
-  // .then(() => {
-  //   return Project.create(projects)
-  // })
-  // .then((projects) => {
-  //   console.log('Artists created:', projects);
-  // })
+// .then((artists) => {
+//   console.log('Artists created:', artists);
+//    if (artists.projects.length > 0) { artists.projects.forEach(project => { return Project.create(project) }) }
+// })
+// .then(() => {
+//   return Project.create(projects)
+// })
+// .then((projects) => {
+//   console.log('Artists created:', projects);
+// })
 
 // should we create the data inside the artist data ?

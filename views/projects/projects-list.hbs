@@ -1,10 +1,11 @@
 <h1 class='heading-2'>explore projects<span class='dot'>.</span></h1>
 
 <label class='filter'>
-  Filter by:
+  <span>Filter by:</span>
   <select class='custom-select' id='filter' onchange='onSelectChange(event)'>
-    {{#each projects}}
-      <option value='{{this.category}}'>{{this.category}}</option>
+    <option selected>Select a category</option>
+    {{#each allCategories}}
+      <option value='{{this}}'>{{this}}</option>
     {{/each}}
   </select>
 </label>

@@ -33,7 +33,9 @@ const userSchema = new Schema(
     phoneNumber: Number,
     location: String,
     profession: String,
-    image: String,
+    image: {
+      type: String,
+    },
   },
   {
     timestamps: true,

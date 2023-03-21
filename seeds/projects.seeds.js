@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Project = require('../models/Project.model');
 const User = require('../models/User.model');
 const { faker } = require('@faker-js/faker');
+require('dotenv').config();
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/m2-project';
+const MONGO_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGO_URI)

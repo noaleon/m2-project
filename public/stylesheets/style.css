@@ -29,6 +29,7 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 p {
@@ -417,11 +418,18 @@ textarea {
 }
 
 .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
   text-align: right;
   border: 2px solid var(--green);
   border-radius: 20px;
   padding: 20px;
   margin: 10px 100px 30px 100px;
+}
+
+.filter > select {
+  margin-left: 10px;
 }
 
 .custom-select {
@@ -451,4 +459,17 @@ textarea {
 
 .actions {
   padding: 20px 0;
+}
+
+.user-profile-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 20px;
+  object-fit: cover;
+}
+
+.user-profile-info {
+  display: flex;
+  align-items: center;
 }

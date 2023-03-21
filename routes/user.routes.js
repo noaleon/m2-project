@@ -58,13 +58,9 @@ router.get('/users/edit', loggedIn, (req, res, next) => {
 router.post(
   '/users/edit',
   loggedIn,
-  isArtist,
   fileUploader.single('image'),
   (req, res, next) => {
     const { fullName, profession, location, skills } = req.body;
-
-    console.log('image', req.file);
-    console.log('body', req.body);
 
     const user = {
       fullName: fullName || undefined,

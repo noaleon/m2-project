@@ -21,9 +21,9 @@ require('./config')(app);
 
 // default value for title local
 const capitalize = require('./utils/capitalize');
-const projectName = 'nf';
+const projectName = 'New Future';
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalize(projectName)}`;
 
 //create this to show the images
 app.use(express.static('public/images'));
