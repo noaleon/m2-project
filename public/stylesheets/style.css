@@ -320,6 +320,10 @@ main {
   padding: 0.5rem;
 }
 
+.card-profile-img {
+  width: inherit;
+}
+
 .bg-img {
   background-repeat: no-repeat;
   background-position: center center;
