@@ -1,20 +1,26 @@
 <h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
-<div class='form'>
-  <div>
-  <img src='{{image}}'/>
-  <label>E-mail: {{email}}</label>
-  <label>Location: {{location}}</label>
-  <label>Profession: {{profession}}</label>
+
+<div class='wrapper-profile'>
+  <div class='user-profile'>
+    <div class='user-profile-info'>
+      <img class='user-profile-img' src='{{image}}' alt='' />
+      <div>
+        <label>Name: {{fullName}}</label>
+        <label>E-mail: {{email}}</label>
+        <label>Location: {{location}}</label>
+        <label>Profession: {{profession}}</label>
+        <div>
+          <a href='/users/edit'><button class='btn-gradient' type='submit'>edit
+              profile</button></a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <a href='/users/edit'><button class='btn-gradient' type='submit'>edit profile</button></a>
+  <h2>my favorite projects<span class='dot'>.</span></h2>
+  <div class='wrapper-projects'>
+    No favorites projects yet.
   </div>
-
-  <h2>my favorites projects<span class='dot'>.</span></h2>
-
-
-</div>
 
   {{#if errorMessage}}
     <p class='error'>{{errorMessage}}</p>

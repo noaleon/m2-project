@@ -43,6 +43,7 @@ hr {
   border: 1px solid var(--green);
   margin: 5px 0;
 }
+
 /* span dot green */
 .dot {
   color: var(--green);
@@ -306,7 +307,7 @@ main {
 .card-title {
   padding: 0.5rem;
   /* color: rgba(255, 255, 255, 0.9); */
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1;
   font-weight: 600;
   text-align: right;
@@ -414,7 +415,7 @@ textarea {
   align-items: center;
   gap: 5px;
   background: none;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 
 .filter {
@@ -452,6 +453,7 @@ textarea {
   display: flex;
   gap: 10px;
   padding-right: 10px;
+  margin-bottom: 10px;
 }
 .see-details:hover {
   color: var(--dark-gray);

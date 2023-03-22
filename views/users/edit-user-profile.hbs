@@ -1,7 +1,7 @@
 <h1 class='heading-1'>welcome {{fullName}} <span class='dot'>.</span></h1>
 <div class='form'>
 
-  <form action="/users/edit" method="POST">
+  <form action="/users/edit" method="POST" enctype="multipart/form-data">
     <label>
       Name
       <input type='text' name='fullName' placeholder='{{fullName}}' />
@@ -13,6 +13,9 @@
      <label>
       Profession
       <input type='text' name='profession' placeholder='your profession' />
+    </label>
+     <label>Image
+      <input type="file" name="image">
     </label>
   <div>
     <button class='btn-gradient' type='submit'>save</button>
