@@ -141,7 +141,7 @@ bottom: 0;
 width:100vw;*/
 .footer-bg {
   position: relative;
-  top: 300px;
+  top: 500px;
   padding: 20px 100px;
   background-color: #c4c4c4;
   display: flex;
@@ -214,16 +214,19 @@ main {
 #create-project,
 #edit-profile {
   background-color: var(--light-gray);
-  position: absolute;
-  margin: 0 auto;
+  padding-top: 20px;
+  /* position: absolute; */
+  /* margin: 0 auto; */
   width: 100vw; /* changed px to vw */
   height: 60vh; /* changed px to vh */
+  margin-bottom: 300px;
 }
 
 #login-form {
   background-color: var(--light-gray);
-  position: absolute;
-  margin: 0 auto;
+  padding-top: 20px;
+  /* position: absolute; */
+  /* margin: 0 auto; */
   width: 100vw;
   height: 60vh;
   /* padding: 300px 100px 100px 100px; */
