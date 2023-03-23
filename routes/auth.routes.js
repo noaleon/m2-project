@@ -78,13 +78,11 @@ router.get('/auth/login', loggedOut, (req, res) => res.render('login-layout'));
 
 // POST login route ==> to process form data
 router.post('/auth/login', loggedOut, (req, res, next) => {
-  console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
 
   if (email === '' || password === '') {
     res.render('login-layout', {
       errorMessage: 'Please enter both, email and password to login.',
-      layout: 'login-layout.hbs',
     });
     return;
   }
@@ -94,9 +92,8 @@ router.post('/auth/login', loggedOut, (req, res, next) => {
       // <== "user" here is just a placeholder and represents the response from the DB
       if (!user) {
         // <== if there's no user with provided email, notify the user who is trying to login
-        res.render('login-layout', {
+        res.render('login-layout.hbs', {
           errorMessage: 'Email is not registered. Try with other email.',
-          layout: 'login-layout.hbs',
         });
         return;
       }
@@ -108,10 +105,7 @@ router.post('/auth/login', loggedOut, (req, res, next) => {
       } else {
         // if the two passwords DON'T match, render the login form again
         // and send the error message to the user
-        res.render('login-layout', {
-          errorMessage: 'Incorrect password.',
-          layout: 'login-layout.hbs',
-        });
+        res.render('login-layout', { errorMessage: 'Incorrect password.' });
       }
     })
     .catch((error) => next(error));

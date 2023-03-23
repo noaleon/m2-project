@@ -103,6 +103,13 @@ button {
 }
 
 /* style page layout.hbs */
+.error {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: none;
+  color: #176b4c;
+}
+
 .header-bg {
   background: linear-gradient(180deg, #3db68a 0%, #4bd89d 100%);
 }
