@@ -1,7 +1,5 @@
 # New Future
 
-Naruto loves to eat ramen! In this game you have to help Naruto eat as much ramen as he can.
-
 ## Description
 
 New Future, is a platform to connect **artist** with the best **new customers.**
