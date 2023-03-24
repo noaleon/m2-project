@@ -2,20 +2,19 @@
 
 ## Description
 
-New Future, is a platform to connect **artist** with the best **new customers.**
+New Future is a platform to connect the best professional **artists** with the best **customers.**
 
 ## User stories
 
-- 404 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
-- 500 - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- login-signup - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account.
-- add-signup - As a user I want to sign up with my full information so that I can safely rent video games from people.
-- homepage - As a user I want to see a notifications preview and be able to either search a video game by console, or go to my profile from the home page.
-- game-search-results - As a user I want to see the search results with a oreview image, the title, the console it's for, and the price of rent per day. Also, to go back to the home page if I don't want to see that search anymore.
-- game-rent-form - As a user I want to see more information about the game when I click on a certain item, the renter's general location, and to choose how many days I want to rent a game. Also, to go back to the search results page if I don't want to see that item anymore.
-- success - As a user I want to see a success page that details the contact information with the renter and confirmation of the general information of the game I just rented. Also, to go back to the home page when I'm done.
-- user-profile - As a user I want to check my profile information and be able to edit it, and add new games to my renting library. Also, to go back to the home page if I don't want to see the profile anymore.
-- notifications - As a user I want to check my notifications in-depth, to see who has rented my game and games I have rented.
+- Login - As a user I want to see a welcome page that displays 3 artists and 3 projects and gives me the option to either: explore the projects, log in as an existing user, or register with a new account.
+- Register - As a user I want to register with my full information so that I can build my professional porfolio/dashboard or I want, as a customer, to reach the professional that best fits my project idea.
+- Index - As a user I want to see the welcome page and be able to see the details of the projects and to contact with the artist.
+- Explore - As a user I want to see displayed all the projects and be able to filter them by the category.
+- User-profile - As a user I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image- and be able to edit it.
+- Artist-profile - As an Artist (user) I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image-, be able to edit it, to check all their own Projects and to Create a New Project.
+- Project-details - As a user I want to see the project's details: Project's Name, category, Artist's name, Project's description and Skills. In addition, I can Contact the artist and leave a Comment. As the owner of the Project I want to also be able to Edit or Delete it.
+- Contact - As a user I want to fill a form with my email, subject and message to send to the Artist.
+- Message - As a user I want to check the email sent and to go back to the Explore page.
 
 ## API routes (back-end)
 
