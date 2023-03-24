@@ -190,20 +190,18 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## Backlog
 
-- Confirmation.hbs
-  Summary of product
-  Confirmation button
-
 - User profile
-  Wishlist
-  Check who is renting my game in the games list
-  Who favorited the games posted
+  List of favorited projects
 
-- Success
-  Contact button besides the 'go home' to call the other user
+- Artist profile
+  List of favorited projects
+  Like count
+  Check who liked your projects
 
-- Homepage
-  Filter part on the search
+- Explore
+  Filter by Artist's name
+  Filter by Location
+  Filter by Skills
 
 ## Links
 
