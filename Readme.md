@@ -19,27 +19,21 @@ New Future is a platform to connect the best professional **artists** with the b
 ## API routes (back-end)
 
 - GET /
-  renders login-signup.hbs
+  finds 3 users that are artists
+  finds 3 projects
+  renders index.hbs
 
-- GET /auth/signup
-  redirects to / if user logged in
-  renders add-signup.hbs
+- GET /auth/register
+  renders register.hbs
 
-- POST /auth/signup
-  redirects to / if user logged in
+- POST /auth/register
   body:
-  email
-  password
-  full name
-  birthday
-  gender
-  address
-  phone
-  cardInfo
-  typeOfCard
-  cardNumber
-  expDate
-  CVV
+    full name
+    email
+    password
+    
+- GET /auth/login
+  renders login-layout.hbs
 
 - POST /auth/login
   redirects to / if user logged in
@@ -47,11 +41,9 @@ New Future is a platform to connect the best professional **artists** with the b
   email
   password
 
-- POST /auth/logout
-  body: (empty)
-
-- GET /
-  renders homepage.hbs (the profile preview + search form)
+- GET /auth/logout
+  session.destroy
+  redirects to /
 
 - POST /homepage (search action)
   body:
@@ -117,80 +109,74 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## Models
 
-- User new Schema (
-  {
-  fullName: {
-  type: String,
-  trim: true,
-  required: true,
-  unique: true,
-  },
-  email: {
-  type: String,
-  required: true,
-  match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
-  unique: true,
-  lowercase: true,
-  trim: true,
-  },
-  password: {
-  type: String,
-  required: true,
-  },
-  role: {
-  type: String,
-  required: true,
-  enum: ['user', 'artist'],
-  },
-  skills: [String],
-  favorites: {
-  type: [Schema.Types.ObjectId],
-  ref: 'Project',
-  },
-  phoneNumber: Number,
-  location: String,
-  profession: String,
-  image: {
-  type: String,
-  },
-  },
-  {
-  timestamps: true,
-  },
-  );
+### User
 
-  - Project new Schema (
-    {
+- User new Schema ({
+    fullName: {
+      type: String,
+      trim: true,
+      required: true,
+      unique: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      required: true,
+      enum: ['user', 'artist'],
+    },
+    skills: [String],
+    favorites: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Project',
+    },
+    phoneNumber: Number,
+    location: String,
+    profession: String,
+    image: String,
+  },
+  { timestamps: true }
+);
+
+### Project
+
+- Project new Schema ({
     owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
     category: {
-    type: String,
-    required: true,
+      type: String,
+      required: true,
     },
     title: {
-    type: String,
-    required: true,
+      type: String,
+      required: true,
     },
     description: {
-    type: String,
-    required: true,
+      type: String,
+      required: true,
     },
     skills: {
-    type: [String],
-    required: true,
+      type: [String],
+      required: true,
     },
-    image: {
-    type: String,
+      image: String,
+      comments: [String],
     },
-    comments: [String],
-    },
-    {
-    timestamps: true,
-    },
-    );
+    { timestamps: true }
+  );
 
 ## Backlog
 
@@ -211,8 +197,14 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## Links
 
+### Deploy
+
+[New Future](https://clumsy-snaps-ant.cyclic.app/)
+
 ### Git
 
-[Repository Link]
-[Deploy Link]
-[New Future](https://fercfmsouza.github.io/feeding-naruto/)
+[Git Repository](https://github.com/li0nh4z3/m2-project)
+
+### Slides
+
+[Canva](https://www.canva.com/design/DAFeAGspR8I/6y2KDF900bNvXyScHMUJ0g/edit?utm_content=DAFeAGspR8I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
