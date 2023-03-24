@@ -200,17 +200,17 @@ New Future is a platform to connect the best professional **artists** with the b
 ## Backlog
 
 - **User profile**
-  List of favorited projects
+  - List of favorited projects
 
 - **Artist profile**
-  List of favorited projects
-  Like count
-  Check who liked your projects
+  - List of favorited projects
+  - Like count
+  - Check who liked your projects
 
 - **Explore**
-  Filter by Artist's name
-  Filter by Location
-  Filter by Skills
+  - Filter by Artist's name
+  - Filter by Location
+  - Filter by Skills
 
 ## Links
 
