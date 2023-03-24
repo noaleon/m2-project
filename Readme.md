@@ -19,93 +19,103 @@ New Future is a platform to connect the best professional **artists** with the b
 ## API routes (back-end)
 
 - GET /
-  finds 3 users that are artists
-  finds 3 projects
-  renders index.hbs
+  - finds 3 users that are artists
+  - finds 3 projects
+  - renders index.hbs
 
 - GET /auth/register
-  renders register.hbs
+  - renders register.hbs
 
 - POST /auth/register
-  body:
-    full name
-    email
-    password
+  - body:
+    - full name
+    - email
+    - password
     
 - GET /auth/login
-  renders login-layout.hbs
+  - renders login-layout.hbs
 
 - POST /auth/login
-  redirects to / if user logged in
-  body:
-  email
-  password
+  - redirects to / if user logged in
+  - body:
+    - email
+    - password
 
 - GET /auth/logout
-  session.destroy
-  redirects to /
+  - session.destroy
+  - redirects to /
+  
+- GET /users/profile
+  - if user is an artist
+    - renders artist-profile.hbs
+  - else
+    - renders users/user-profile
 
-- POST /homepage (search action)
-  body:
-  game-title
-  console
+- GET /users/edit
+  - if user is an artist
+    - renders edit-artist-profile.hbs
+  - else
+    - renders edit-user-profile.hbs
 
-- GET /game-search-results
-  renders game-search-results.hbs
-  includes the list of games
-  redirects to / if user presses button
+- POST /users/edit
+  - body:
+    - full name
+    - profession
+    - location
+    - skills
+    - image
+    
+- GET /send-email
+  - renders contact.hbs
 
-- GET /rent-form/:id
-  renders rent-form.hbs
-  redirects to /game-search-results if user presses button
+- POST /send-email
+  - body:
+    - email
+    - subject
+    - message
 
-- POST /rent-form/:id
-  body:
-  days
-  price update
+- GET /projects/explore
+  - query:
+    - filter
+  - renders project-list.hbs with projects
+  - if filter renders project-list.hbs with filteredProjects by allCategories
 
-- GET /success
-  renders success.hbs
-  redirects to / if user presses button
+- GET /projects/create
+  - renders create-project.hbs
 
-- GET /profile
-  renders user-profile.hbs
-  redirects to / if user presses button
+- POST /projects/create
+  - body:
+    - owner
+    - category
+    - title
+    - description
+    - skills
+    - image
+  - redirects to /projects/:id
 
-- POST /profile (to edit profile)
-  redirects to /add-signup (we reuse it but for edit purposes)
-  body:
-  email
-  password
-  full name
-  birthday
-  gender
-  address
-  phone
-  cardInfo
-  typeOfCard
-  cardNumber
-  expDate
-  CVV
+- GET /projects/:id
+  - renders project-details.hbs
 
-- POST /profile (to add game)
-  body:
-  game title
-  console
-  price
-  max days of rent
+- GET /projects/:id/edit
+  - render project-edit.hbs
 
-- GET /profile
-  renders user-profile.hbs updated
-  redirects to / if user presses button
+- POST /projects/:id/edit
+  - body:
+    - title
+    - category
+    - description
+    - skills
+  - redirects to /projects/:id with the updated project
 
-- GET /notifications
-  renders notifications.hbs
-  redirects to / if user presses button
+- GET /projects/:id/delete
+  - redirects to /users/profile without the deleted project
 
-- GET /success (for renter)
-  renders success.hbs
-  redirects to /notifications if user presses button
+- POST /projects/:id/comments
+  - body:
+    - comment
+  - params:
+    - id
+  - redirects to /projects/:comment.id
 
 ## Models
 
