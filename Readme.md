@@ -6,15 +6,24 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## User stories
 
-- Login - As a user I want to see a welcome page that displays 3 artists and 3 projects and gives me the option to either: explore the projects, log in as an existing user, or register with a new account.
-- Register - As a user I want to register with my full information so that I can build my professional porfolio/dashboard or I want, as a customer, to reach the professional that best fits my project idea.
-- Index - As a user I want to see the welcome page and be able to see the details of the projects and to contact with the artist.
-- Explore - As a user I want to see displayed all the projects and be able to filter them by the category.
-- User-profile - As a user I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image- and be able to edit it.
-- Artist-profile - As an Artist (user) I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image-, be able to edit it, to check all their own Projects and to Create a New Project.
-- Project-details - As a user I want to see the project's details: Project's Name, category, Artist's name, Project's description and Skills. In addition, I can Contact the artist and leave a Comment. As the owner of the Project I want to also be able to Edit or Delete it.
-- Contact - As a user I want to fill a form with my email, subject and message to send to the Artist.
-- Message - As a user I want to check the email sent and to go back to the Explore page.
+- **Login** 
+  - As a user I want to see a welcome page that displays 3 artists and 3 projects and gives me the option to either: explore the projects, log in as an existing user, or register with a new account.
+- **Register 
+  - As a user I want to register with my full information so that I can build my professional porfolio/dashboard or I want, as a customer, to reach the professional that best fits my project idea.
+- **Index 
+  - As a user I want to see the welcome page and be able to see the details of the projects and to contact with the artist.
+- **Explore** 
+  - As a user I want to see displayed all the projects and be able to filter them by the category.
+- **User-profile 
+  - As a user I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image- and be able to edit it.
+- **Artist-profile 
+  - As an Artist (user) I want to check my profile information -Full name, email, Profession, Location, Skills, Profile Image-, be able to edit it, to check all their own Projects and to Create a New Project.
+- **Project-details 
+  - As a user I want to see the project's details: Project's Name, category, Artist's name, Project's description and Skills. In addition, I can Contact the artist and leave a Comment. As the owner of the Project I want to also be able to Edit or Delete it.
+- **Contact  
+  - As a user I want to fill a form with my email, subject and message to send to the Artist.
+- **Message 
+  - As a user I want to check the email sent and to go back to the Explore page.
 
 ## API routes (back-end)
 
