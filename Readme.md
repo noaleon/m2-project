@@ -27,46 +27,46 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## API routes (back-end)
 
-- GET /
+- GET **/**
   - finds 3 users that are artists
   - finds 3 projects
   - renders index.hbs
 
-- GET /auth/register
+- GET **/auth/register**
   - renders register.hbs
 
-- POST /auth/register
+- POST **/auth/register**
   - body:
     - full name
     - email
     - password
     
-- GET /auth/login
+- GET **/auth/login**
   - renders login-layout.hbs
 
-- POST /auth/login
+- POST **/auth/login**
   - redirects to / if user logged in
   - body:
     - email
     - password
 
-- GET /auth/logout
+- GET **/auth/logout**
   - session.destroy
   - redirects to /
   
-- GET /users/profile
+- GET **/users/profile**
   - if user is an artist
     - renders artist-profile.hbs
   - else
     - renders users/user-profile
 
-- GET /users/edit
+- GET **/users/edit**
   - if user is an artist
     - renders edit-artist-profile.hbs
   - else
     - renders edit-user-profile.hbs
 
-- POST /users/edit
+- POST **/users/edit**
   - body:
     - full name
     - profession
@@ -74,25 +74,25 @@ New Future is a platform to connect the best professional **artists** with the b
     - skills
     - image
     
-- GET /send-email
+- GET **/send-email**
   - renders contact.hbs
 
-- POST /send-email
+- POST **/send-email**
   - body:
     - email
     - subject
     - message
 
-- GET /projects/explore
+- GET **/projects/explore**
   - query:
     - filter
   - renders project-list.hbs with projects
   - if filter renders project-list.hbs with filteredProjects by allCategories
 
-- GET /projects/create
+- GET **/projects/create**
   - renders create-project.hbs
 
-- POST /projects/create
+- POST **/projects/create**
   - body:
     - owner
     - category
@@ -102,13 +102,13 @@ New Future is a platform to connect the best professional **artists** with the b
     - image
   - redirects to /projects/:id
 
-- GET /projects/:id
+- GET **/projects/:id**
   - renders project-details.hbs
 
-- GET /projects/:id/edit
+- GET **/projects/:id/edit**
   - render project-edit.hbs
 
-- POST /projects/:id/edit
+- POST **/projects/:id/edit**
   - body:
     - title
     - category
@@ -116,10 +116,10 @@ New Future is a platform to connect the best professional **artists** with the b
     - skills
   - redirects to /projects/:id with the updated project
 
-- GET /projects/:id/delete
+- GET **/projects/:id/delete**
   - redirects to /users/profile without the deleted project
 
-- POST /projects/:id/comments
+- POST **/projects/:id/comments**
   - body:
     - comment
   - params:
@@ -199,15 +199,15 @@ New Future is a platform to connect the best professional **artists** with the b
 
 ## Backlog
 
-- User profile
+- **User profile**
   List of favorited projects
 
-- Artist profile
+- **Artist profile**
   List of favorited projects
   Like count
   Check who liked your projects
 
-- Explore
+- **Explore**
   Filter by Artist's name
   Filter by Location
   Filter by Skills
